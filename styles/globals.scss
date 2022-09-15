@@ -1,3 +1,23 @@
+@font-face {
+	font-weight: 500;
+	font-family: "Outfit";
+	font-style: normal;
+	src: url("/fonts/outfit-v4-latin-500.woff2") format("woff2");
+}
+
+@font-face {
+	font-weight: 700;
+	font-family: "Outfit";
+	font-style: normal;
+	src: url("/fonts/outfit-v4-latin-700.woff2") format("woff2");
+}
+@font-face {
+	font-weight: 900;
+	font-family: "Outfit";
+	font-style: normal;
+	src: url("/fonts/outfit-v4-latin-900.woff2") format("woff2");
+}
+
 :root {
 	--bg: #fff;
 	--text: #000;
@@ -65,14 +85,24 @@ body {
 	transition: background 0.5s;
 }
 
-h2 {
+h1 {
 	margin-bottom: 30px;
-	font-weight: 800;
-	font-size: 28px;
-	letter-spacing: -0.3px;
+	font-size: 32px;
+	letter-spacing: 1px;
 
 	@media (min-width: 480px) {
-		margin-bottom: 55px;
-		font-size: 32px;
+		font-size: 56px;
+	}
+}
+
+h2 {
+	margin-bottom: 30px;
+	font-weight: 500;
+	font-size: 28px;
+	letter-spacing: 0.6px;
+
+	@media (min-width: 480px) {
+		margin-bottom: 20px;
+		font-size: 24px;
 	}
 }

@@ -49,7 +49,7 @@ export const SunIcon = () => {
 	const whileTap = { scale: 0.95, rotate: 15 };
 	const raysVariants = {
 		initial: { rotate: 45 },
-		animate: { rotate: 360, transition },
+		animate: { rotate: 90, transition },
 	};
 	const coreVariants = {
 		initial: { scale: 0.6 },

@@ -1,0 +1,44 @@
+.header_container {
+	min-height: 100vh;
+	max-width: 100vw;
+	// background-image: url(/blob_bg.svg);
+	// background-repeat: no-repeat;
+	// background-position: 450px;
+	// height: 400px;
+	// background-size: 45%;
+}
+
+//
+
+.header {
+	max-width: 60vw;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	padding-top: 200px;
+	font-family: "Outfit";
+	font-weight: 500;
+}
+
+.header__content {
+	img {
+		position: absolute;
+		top: -5%;
+		left: 30%;
+		z-index: -20;
+		width: 40%;
+		opacity: 0.8;
+	}
+}
+
+.header__gifcontainer {
+	transform: translateY(-25px);
+}
+
+.header__gif {
+	display: absolute;
+	min-width: 150px;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
