@@ -1,3 +1,4 @@
+import { SocialIcons } from "./../components/SocialIcons";
 import { MainHeader } from "./../components/MainHeader";
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
@@ -6,6 +7,8 @@ import Head from "next/head";
 
 import NavBar from "../components/NavBar";
 import styles from "../styles/mainheader.module.scss";
+
+import Link from "next/link";
 
 const Home: NextPage = () => {
 	return (
@@ -18,7 +21,11 @@ const Home: NextPage = () => {
 			<NavBar />
 			<main className={styles.header_container}>
 				<MainHeader />
+				<SocialIcons />
 			</main>
+			<section className="about">
+				<div className="skills"></div>
+			</section>
 		</>
 	);
 };

@@ -5,7 +5,8 @@ import styles from "../styles/toggletheme.module.scss";
 import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { toggleThree } from "../utils/toggleThree";
 // import useSound from "use-sound";
-// import lightsOn from "../sounds/lights_on.mp3";
+
+// import lightsOn from "/sounds/lights_on.mp3";
 
 export const variants = ["light", "dark", "system"];
 {
@@ -125,8 +126,9 @@ const getIcon = (variant: string) => {
 
 const ToggleTheme = (): JSX.Element => {
 	const [mounted, setMounted] = useState(false);
-	const [active, setActive] = useState(false);
 	const { setTheme, theme } = useTheme();
+	// const [play] = useSound(lightsOn);
+
 	// When mounted on client, now we can show the UI
 	useEffect(() => {
 		if (theme !== "light" && theme !== "dark") {
@@ -142,7 +144,9 @@ const ToggleTheme = (): JSX.Element => {
 		<LayoutGroup id="a">
 			<div
 				className={styles.wrapper}
+				style={{ cursor: "pointer" }}
 				onClick={() => {
+					// play;
 					setTheme(toggleThree());
 				}}
 			>

@@ -1,4 +1,11 @@
 @font-face {
+	font-weight: 300;
+	font-family: "Outfit";
+	font-style: normal;
+	src: url("/fonts/outfit-v4-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
 	font-weight: 500;
 	font-family: "Outfit";
 	font-style: normal;
@@ -20,9 +27,10 @@
 
 :root {
 	--bg: #fff;
+	--bgInverse: #161515;
 	--text: #000;
 	--textTinted: rgba(0, 0, 0, 0.5);
-	--brand: #e38356;
+	--brand: #fd6449;
 	--brandActive: #b3613b;
 	--brandTinted: rgba(227, 131, 86, 0.2);
 	--brandTintedActive: rgba(227, 131, 86, 0.33);
@@ -30,9 +38,8 @@
 	--border: rgba(0, 0, 0, 0.08);
 	--borderActive: rgba(0, 0, 0, 0.25);
 	--star: #fece02;
-	--fontFamily: "GT Walsheim Pro", -apple-system, BlinkMacSystemFont, Segoe UI,
-		Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-		sans-serif;
+	--fontFamily: "Outfit", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	--boxBg: #f3f3f3;
 	--siteWidth: 83ch;
 	--inputBg: white;
@@ -45,8 +52,9 @@
 
 [data-theme="dark"] {
 	--bg: #161515;
-	--text: #fff;
-	--textTinted: rgba(255, 255, 255, 0.5);
+	--bgInverse: #fff;
+	--text: rgb(255, 255, 255);
+	--textTinted: rgba(255, 255, 255, 0.699);
 	--headerBg: rgba(22, 21, 21, 0.6);
 	--border: rgba(255, 255, 255, 0.08);
 	--borderActive: rgba(255, 255, 255, 0.25);
@@ -97,8 +105,8 @@ h1 {
 
 h2 {
 	margin-bottom: 30px;
-	font-weight: 500;
-	font-size: 28px;
+	font-weight: 300;
+	font-size: 18px;
 	letter-spacing: 0.6px;
 
 	@media (min-width: 480px) {

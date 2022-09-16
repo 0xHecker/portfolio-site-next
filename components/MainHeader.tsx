@@ -1,9 +1,15 @@
 import React from "react";
 import styles from "../styles/mainheader.module.scss";
 import GifHolder from "./GifHolder";
+import { RoughNotation } from "react-rough-notation";
+import { useTheme } from "next-themes";
+import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import { MdNorthEast } from "react-icons/md";
 
 export function MainHeader() {
 	const [hover, setHover] = React.useState(false);
+	const { theme } = useTheme();
+
 	const onHover = () => {
 		setHover(true);
 	};
@@ -38,7 +44,16 @@ export function MainHeader() {
 						onMouseEnter={onHover}
 						onMouseLeave={onLeave}
 					>
-						Shanmukh
+						<RoughNotation
+							type="underline"
+							show={true}
+							strokeWidth={2}
+							color={"tomato"}
+							iterations={2}
+							animationDelay={500}
+						>
+							Shanmukh
+						</RoughNotation>
 					</span>
 					<span
 						style={{
@@ -57,9 +72,25 @@ export function MainHeader() {
 					</span>
 				</h1>
 				<h2>
-					I&rsquo;m a fullstack developer. this is my personal website where
-					you&rsquo;ll find all my works and stuff I&rsquo;m currently thinking
-					about
+					I&rsquo;m your friendly neighbourhood{" "}
+					<RoughNotation
+						type="underline"
+						show={true}
+						animationDelay={1500}
+						color={theme === "light" ? "blue" : "lightblue"}
+						strokeWidth={2}
+					>
+						<span style={{ fontWeight: "500" }}>fullstack developer.</span>
+					</RoughNotation>
+					<span
+						style={{
+							display: "inline-block",
+							marginTop: "10px",
+						}}
+					>
+						this is my personal website where you&rsquo;ll find all my works and
+						the stuff I&rsquo;m currently thinking about.
+					</span>
 				</h2>
 			</div>
 			<div className={styles.header__gifcontainer}>
