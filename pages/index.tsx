@@ -8,8 +8,6 @@ import Head from "next/head";
 import NavBar from "../components/NavBar";
 import styles from "../styles/mainheader.module.scss";
 
-import Link from "next/link";
-
 const Home: NextPage = () => {
 	return (
 		<>
