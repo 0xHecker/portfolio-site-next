@@ -18,7 +18,7 @@
 	display: flex;
 	flex-direction: row;
 	padding-top: 250px;
-	font-family: "Outfit";
+	font-family: 'Outfit';
 	font-weight: 300;
 	@media screen and (max-width: 1150px) {
 		max-width: 100vw;
@@ -47,9 +47,6 @@
 	}
 
 	@media screen and (max-width: 1150px) {
-		h2 {
-			font-size: large;
-		}
 		img {
 			position: absolute;
 			top: -15%;

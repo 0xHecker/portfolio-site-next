@@ -1,28 +1,33 @@
 @font-face {
 	font-weight: 300;
-	font-family: "Outfit";
+	font-family: 'Outfit';
 	font-style: normal;
-	src: url("/fonts/outfit-v4-latin-regular.woff2") format("woff2");
+	src: url('/fonts/outfit-v4-latin-regular.woff2')
+		format('woff2');
 }
 
 @font-face {
 	font-weight: 500;
-	font-family: "Outfit";
+	font-family: 'Outfit';
 	font-style: normal;
-	src: url("/fonts/outfit-v4-latin-500.woff2") format("woff2");
+	src: url('/fonts/outfit-v4-latin-500.woff2')
+		format('woff2');
 }
 
 @font-face {
 	font-weight: 700;
-	font-family: "Outfit";
+	font-family: 'Outfit';
 	font-style: normal;
-	src: url("/fonts/outfit-v4-latin-700.woff2") format("woff2");
+	src: url('/fonts/outfit-v4-latin-700.woff2')
+		format('woff2');
 }
+
 @font-face {
 	font-weight: 900;
-	font-family: "Outfit";
+	font-family: 'Outfit';
 	font-style: normal;
-	src: url("/fonts/outfit-v4-latin-900.woff2") format("woff2");
+	src: url('/fonts/outfit-v4-latin-900.woff2')
+		format('woff2');
 }
 
 :root {
@@ -38,8 +43,9 @@
 	--border: rgba(0, 0, 0, 0.08);
 	--borderActive: rgba(0, 0, 0, 0.25);
 	--star: #fece02;
-	--fontFamily: "Outfit", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	--fontFamily: 'Outfit', -apple-system, BlinkMacSystemFont,
+		Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+		Droid Sans, Helvetica Neue, sans-serif;
 	--boxBg: #f3f3f3;
 	--siteWidth: 83ch;
 	--inputBg: white;
@@ -50,7 +56,7 @@
 	--transparent: rgba(255, 255, 255, 0);
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
 	--bg: #161515;
 	--bgInverse: #fff;
 	--text: rgb(255, 255, 255);
