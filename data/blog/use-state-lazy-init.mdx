@@ -1,0 +1,173 @@
+---
+title: "Lazy Initilization and storing functions in React useState hook"
+publishedAt: "2022-08-28"
+updatedAt: "2022-08-28"
+summary: "Lazy Initilization and storing functions in React useState hook"
+tags: ["React", "React-hooks"]
+---
+
+# Lazy Initialization and Storing functions with React useState hook
+
+We often use fairly simple `useState` hook in our apps. sometimes using it might lead to some tiny performance issues. We'll go through some scenarios how to optimize perfomance with Lazy initialization of state in some scenarios. This article is a deep dive through our favorite `useState` hook.
+
+`useState` hook can also accept a callback function. it can accept a state `T` or a Function that returns a state of type `T`. where `T` can be a String, Number, Array, or an Object.
+
+**This is the signature of useState hook.**
+
+```javascript
+function  useState<T>(initialState: T | (() =>  T)): [T, Dispatch<SetStateAction<T>>];
+```
+
+- `useState` hook is an abstraction of `useDispatch` hook of basic level.
+- You can think of `[state, setState]` as `[state, dispatch]` that we get from [`useReducer`](https://reactjs.org/docs/hooks-reference.html#usereducer) where we modify the state using `dispatch` function, so `setState` is a simplified `dispatch` function.
+
+\
+&nbsp;
+
+## Lazy Initialization of state
+
+React useState hook can take a callback function as an initial value, this is called as lazy initialization of state.
+
+Which means the return value of callback function going to set the state only once throughout the lifecycle of that component when the component mounts and rendered initially.
+
+```jsx
+const [state, setState] =
+	useState <
+	string >
+	(() => {
+		console.log("function call"); // this will log for only once in the lifecycle of the component
+		const initialState: string = someExpensiveComputation(props);
+		return initialState;
+	});
+// This is called as lazy initialization of state
+```
+
+**Tips:**
+
+- Always remember to return the value of type you want to set the state for in the callback function, doing not so can lead to [uncontrolled components](https://codesandbox.io/s/dazzling-jones-b6w4q5?file=/src/ControlledUncontrolled.jsx) sometimes.
+- Lazy initialization of state is analogous to passing initial state through `useDispatch(reducerFn, initialValue)`
+- `useReducer` is usually preferable to `useState` when you have complex state logic that involves multiple sub-values. It also lets you optimize performance for components that trigger deep updates because you can pass `dispatch` down instead of callbacks.
+
+It can be handy and performant when you are using custom hooks that utilize useState or when reading the state gets expensive.
+
+I can think of a scenario where reading the state can get expensive is when we are managing a state of browser localstorage value.
+
+```javascript
+// Here is a basic implementation of a custom hook for maintaining the state of localstorage value
+
+function useLocalStorageState(key, defaultValue = "") {
+	const [state, setState] = React.useState(() => {
+		// We don't want to get our state value everytime from localstorage as it can take some time and lead to perfomance issues
+		const valueInLocalStorage = window.localStorage.getItem(key);
+		if (valueInLocalStorage) {
+			return JSON.stringify(valueInLocalStorage);
+		}
+		return typeof defaultValue === "function" ? defaultValue() : defaultValue;
+	});
+
+	React.useEffect(() => {
+		window.localStorage.setItem(key, JSON.parse(state));
+	}, [key, state]);
+	return [state, setState];
+}
+```
+
+When we are calling this custom hook from other components like below, we don't want to set the initial value to `initialValue` everytime and override the localstorage value. _so setting the value lazily can get us out of this situation without overriding the localstorage value and it helps in increasing the performance of the app by saving calls to localstorage for the value._
+
+```javascript
+let storage = useLocalStorageName("keyName", initialValue);
+```
+
+## Storing a function with useState hook :
+
+Yes, you heard it right. we can store a function with `useState` hook.
+but merely passing a function to setState won't do this work. We should return a function to a callback function
+
+```jsx
+const [myState, setMyState] = React.useState((x) => 5 * x);
+// this don't set the myState to a function, remember Lazy initialization. in fact it is illegal to pass arguments to callback function for useState.
+```
+
+doing this will set the state to a function.
+
+```jsx
+const [myState, setMyState] = React.useState(() => (x) => 5 * x);
+// this will set the myState to a function.
+```
+
+if you pass a function as a call back function and return it, the state will get initialized with a function.
+
+```jsx
+// Now we can use myState as a function
+let value = myState(10);
+console.log(value);
+// output: 50
+
+console.log(myState(20));
+// output: 100
+```
+
+\
+&nbsp;
+
+## How can we mutate a state hook with a function?
+
+Just like initialisation, passing a function to a state setter has a special meaning in React.
+
+[It is used when you want to compute the next state “reductively,”](https://reactjs.org/docs/hooks-reference.html#functional-updates)
+
+```jsx
+const [count, setCount] = useState(initialCount);
+setCount((prevCount) => prevCount + 1); // increase the count by one
+// passing a function to setCount will result in updating the previous state value with return value of the function with previous state value as an argument.
+```
+
+if we intend to change the state which store function, doing this will update the
+
+```jsx
+setMyState(() => (x) => 2 * x);
+```
+
+now myState has updated to a new function we set
+
+```jsx
+myState(10);
+// output: 20
+```
+
+Here is a [ codesandbox](https://codesandbox.io/s/busy-kapitsa-c7pkfm?file=/src/App.js:365-395) you can play with.
+\
+&nbsp;
+
+> Although it is possible to store functions with useState hook don't abuse it, consider using useCallback hook for storing functions.
+
+\
+&nbsp;
+\
+&nbsp;
+
+## TL;DR
+
+There is a subtle difference how you store a state value and how you store a function with react useState hook. If you pass a callback function returning a value to the useState hook, state will be initialized for only for once with the value you are returning when the component mounts and rendered for the first time. It is called Lazy Initialization of state.
+
+```jsx
+const [state, setState] = useState(() => {
+	console.log("function call"); // this will log for only once in the lifecycle of the component
+	return "This is set for the first time";
+});
+// This is called as lazy initialization of state
+```
+
+if you pass a function as a call back function and return it the state will get initialized with a function.
+
+```jsx
+const [multiplyState, setMultiplyFn] = useState(() => (x) => 5 * x);
+const product = multiplyState(10); // product is 50
+// Although it is possible to store functions with useState hook consider using useCallback hook for this purpose
+```
+
+```jsx
+// this won't store a function in the state
+const [multiplyFn] = useState((x) => 3 * x);
+const product = myMultiplier(10);
+```
