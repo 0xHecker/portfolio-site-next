@@ -30,11 +30,11 @@ export const imgPaths = {
 	},
 
 	Apollo: {
-		path: '/icons/apollostack.svg',
+		path: '/icons/apollo.svg',
 		website: 'https://apollo.com',
 	},
 	express: {
-		path: '/icons/express.svg',
+		path: '/icons/express.png',
 		website: 'https://express.com',
 	},
 	MongoDB: {
@@ -72,12 +72,16 @@ export const imgPaths = {
 		path: '/icons/graphql.svg',
 		website: 'https://graphql.com',
 	},
+	React: {
+		path: '/icons/react.svg',
+		website: 'https://react	.com',
+	},
 	'Next.js': {
 		path: '/icons/nextjs-icon.svg',
 		website: 'https://nextjs.com',
 	},
 	Solidity: {
-		path: '/icons/solidity.svg',
+		path: '/icons/solidity.png',
 		website: 'https://solidity.com',
 	},
 
@@ -107,13 +111,17 @@ export const imgPaths = {
 		website: 'https://jest.com',
 	},
 	prisma: {
-		path: '/icons/prisma.svg',
+		path: '/icons/prisma.png',
 		website: 'https://prisma.com',
 	},
 
 	ethereum: {
 		path: '/icons/ethereum-color.svg',
 		website: 'https://ethereum.com',
+	},
+	hardhat: {
+		path: '/icons/hardhat.svg',
+		website: 'https://hardhat.com',
 	},
 	linux: {
 		path: '/icons/linuxtux.svg',
