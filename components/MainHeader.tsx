@@ -1,10 +1,8 @@
-import React from "react";
-import styles from "../styles/mainheader.module.scss";
-import GifHolder from "./GifHolder";
-import { RoughNotation } from "react-rough-notation";
-import { useTheme } from "next-themes";
-import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
-import { MdNorthEast } from "react-icons/md";
+import React from 'react';
+import styles from '../styles/mainheader.module.scss';
+import GifHolder from './GifHolder';
+import { RoughNotation } from 'react-rough-notation';
+import { useTheme } from 'next-themes';
 
 export function MainHeader() {
 	const [hover, setHover] = React.useState(false);
@@ -24,22 +22,22 @@ export function MainHeader() {
 				<h1>
 					<span
 						style={{
-							display: "block",
+							display: 'block',
 						}}
 					>
-						Hi,{" "}
+						Hi,{' '}
 					</span>
 					<span
 						style={{
-							display: "inline-block",
+							display: 'inline-block',
 						}}
 					>
 						I&rsquo;m
-					</span>{" "}
+					</span>{' '}
 					<span
 						style={{
-							display: "inline-block",
-							cursor: "pointer",
+							display: 'inline-block',
+							cursor: 'pointer',
 						}}
 						onMouseEnter={onHover}
 						onMouseLeave={onLeave}
@@ -48,7 +46,7 @@ export function MainHeader() {
 							type="underline"
 							show={true}
 							strokeWidth={2}
-							color={"tomato"}
+							color={'tomato'}
 							iterations={2}
 							animationDelay={500}
 						>
@@ -57,39 +55,42 @@ export function MainHeader() {
 					</span>
 					<span
 						style={{
-							display: "inline-block",
-							color: "tomato",
+							display: 'inline-block',
+							color: 'tomato',
 						}}
 					>
 						.
 					</span>
 					<span
 						style={{
-							display: "inline-block",
+							display: 'inline-block',
 						}}
 					>
-						{hover ? <span>eth</span> : ""}
+						{hover ? <span>eth</span> : ''}
 					</span>
 				</h1>
 				<h2>
-					I&rsquo;m your friendly neighbourhood{" "}
+					I&rsquo;m your friendly neighbourhood{' '}
 					<RoughNotation
 						type="underline"
 						show={true}
 						animationDelay={1500}
-						color={theme === "light" ? "blue" : "lightblue"}
+						color={theme === 'light' ? 'blue' : 'lightblue'}
 						strokeWidth={2}
 					>
-						<span style={{ fontWeight: "500" }}>fullstack developer.</span>
+						<span style={{ fontWeight: '500' }}>
+							fullstack developer.
+						</span>
 					</RoughNotation>
 					<span
 						style={{
-							display: "inline-block",
-							marginTop: "10px",
+							display: 'inline-block',
+							marginTop: '10px',
 						}}
 					>
-						this is my personal website where you&rsquo;ll find all my works and
-						the stuff I&rsquo;m currently thinking about.
+						this is my personal website where you&rsquo;ll
+						find all my works and the stuff I&rsquo;m
+						currently thinking about.
 					</span>
 				</h2>
 			</div>

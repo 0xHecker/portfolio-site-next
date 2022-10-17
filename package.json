@@ -13,6 +13,7 @@
 		"classnames": "^2.3.2",
 		"contentlayer": "^0.2.8",
 		"framer-motion": "^7.3.2",
+		"lodash": "^4.17.21",
 		"next": "12.3.0",
 		"next-contentlayer": "^0.2.8",
 		"next-seo": "^5.5.0",
@@ -24,6 +25,7 @@
 		"react-icons": "^4.4.0",
 		"react-rough-notation": "^1.0.3",
 		"reading-time": "^1.5.0",
+		"redux": "^4.2.0",
 		"rehype-prism-plus": "^1.5.0",
 		"remark-code-titles": "^0.1.2",
 		"sass": "^1.54.9",
@@ -31,6 +33,7 @@
 		"use-sound": "^4.0.1"
 	},
 	"devDependencies": {
+		"@svgr/webpack": "^6.4.0",
 		"@types/node": "18.7.17",
 		"@types/react": "18.0.19",
 		"@types/react-dom": "18.0.6",

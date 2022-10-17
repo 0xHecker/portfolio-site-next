@@ -13,7 +13,11 @@ const IconsComponent = () => {
 				{Object.entries(imgPaths).map((item) => {
 					return (
 						<div className={styles.icons} key={item[0]}>
-							<a href={`${item[1].website}`}>
+							<a
+								rel="noopener noreferrer"
+								target="_blank"
+								href={`${item[1].website}`}
+							>
 								<span>{item[0]}</span>
 								<img
 									src={`${item[1].path}`}

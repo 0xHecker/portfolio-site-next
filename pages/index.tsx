@@ -1,5 +1,5 @@
 import { SocialIcons } from './../components/SocialIcons';
-import { MainHeader } from './../components/MainHeader';
+import { MainHeader } from '../components/MainHeader';
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import type { NextPage } from 'next';
@@ -8,6 +8,8 @@ import Head from 'next/head';
 import NavBar from '../components/NavBar';
 import styles from '../styles/mainheader.module.scss';
 import IconsComponent from 'components/IconsComponent';
+import BreakComponent from 'components/BreakComponent';
+import ProjectsComponent from 'components/projects/ProjectsComponent';
 
 const Home: NextPage = () => {
 	return (
@@ -25,7 +27,9 @@ const Home: NextPage = () => {
 			<main className={styles.header_container}>
 				<MainHeader />
 				<SocialIcons />
+				<BreakComponent marginTop="4rem" />
 				<IconsComponent />
+				<ProjectsComponent />
 			</main>
 		</>
 	);
