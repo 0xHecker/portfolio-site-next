@@ -17,7 +17,7 @@ export const projects = [
 		],
 		links: [
 			'https://github.com/0xHecker/beddit-web',
-			'https://beddit.shanmukh.com',
+			'https://beddit.shanmukh.xyz',
 		],
 	},
 	{
@@ -37,7 +37,7 @@ export const projects = [
 		],
 		links: [
 			'https://github.com/0xHecker/beddit-web',
-			'https://beddit.shanmukh.com',
+			'https://beddit.shanmukh.xyz',
 		],
 	},
 	{
@@ -49,7 +49,7 @@ export const projects = [
 		tags: ['Next.js', 'Typescript', 'GraphQL', 'Apollo'],
 		links: [
 			'https://github.com/0xHecker/beddit-web',
-			'https://beddit.shanmukh.com',
+			'https://beddit.shanmukh.xyz',
 		],
 	},
 ];

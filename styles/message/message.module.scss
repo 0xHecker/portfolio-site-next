@@ -1,0 +1,77 @@
+@use '../mixins.scss' as *;
+
+.input {
+  @include input(800px);
+}
+
+.inputWrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.reInputWrapper {
+  max-width: fit-content;
+  margin: auto;
+  margin-bottom: 1rem;
+
+  @media screen and (max-width: 480px) {
+    transform: scale(0.77);
+    -webkit-transform: scale(0.77);
+  }
+}
+
+.inputIcon {
+  position: absolute;
+  top: 55%;
+  left: 10px;
+  width: 18px;
+  transform: translateY(calc(-50% - 1px));
+  circle,
+  line {
+    opacity: 0.6;
+    stroke: var(--text);
+  }
+}
+
+.inputIcon2 {
+  position: absolute;
+  top: 24%;
+  left: 10px;
+  width: 18px;
+  transform: translateY(calc(-50% - 1px));
+  circle,
+  line {
+    opacity: 0.6;
+    stroke: var(--text);
+  }
+}
+
+.messageComponent {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid var(--text);
+  border-radius: 1rem;
+}
+
+.messageContainer {
+  max-width: fit-content;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.headingContainer {
+  max-width: fit-content;
+  margin: auto;
+}
+
+.messageHeading {
+  display: inline-block;
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--brand);
+}
+
+.sendMessage {
+  @include bwButton;
+}

@@ -1,181 +1,203 @@
 @use '../mixins.scss' as *;
 
 .projectsContainer {
-	margin-top: 5rem;
-	box-sizing: border-box;
-	position: relative;
+  margin-top: 5rem;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .bg {
-	position: absolute;
-	left: -28rem;
-	top: 12rem;
-	width: 700px;
-	height: 450px;
-	transform: rotate(-30deg) scale(0.8);
-	z-index: -50;
-	background-image: url('/peace-icon.png');
+  position: absolute;
+  left: -28rem;
+  top: 12rem;
+  width: 700px;
+  height: 450px;
+  transform: rotate(-30deg) scale(0.8);
+  z-index: -50;
+  background-image: url('/peace-icon.png');
 }
 
 .projectMain {
-	border: 1px solid var(--heading);
-	height: fit-content;
-	width: 100%;
-	border-radius: 1.3rem;
-	box-shadow: 0 0 10px var(--shadowLow);
-	transition: all 1s;
-	z-index: -1;
-	background-color: rgba(204, 199, 199, 0.137); // #ffdae521
-	margin-bottom: 2rem;
-	backdrop-filter: blur(16px) saturate(200%);
-	-webkit-backdrop-filter: blur(16px) saturate(200%);
-	padding-bottom: 1rem;
-	&:hover {
-		box-shadow: 0 0 25px var(--shadowHigh);
-	}
+  height: fit-content;
+  width: 100%;
+  border-radius: 1.3rem;
+  box-shadow: 0 0 10px var(--shadowLow);
+  transition: all 1s;
+  z-index: -1;
+  background-color: rgba(204, 199, 199, 0.137); // #ffdae521
+  margin-bottom: 2rem;
+  backdrop-filter: blur(16px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+  padding-bottom: 1rem;
+  &:hover {
+    box-shadow: 0 0 25px var(--shadowHigh);
+  }
 
-	h2 {
-		color: var(--textTinted);
-		font-weight: 600;
-		font-size: 26px;
-	}
+  h2 {
+    color: var(--textTinted);
+    font-weight: 600;
+    font-size: 26px;
+  }
+
+  @media (max-width: 480px) {
+    border: 1px solid var(--heading);
+  }
 }
 
 .title {
-	display: inline-block;
-	margin-top: 1.5rem;
-	margin-left: 3rem;
+  display: inline-block;
+  margin-top: 1.5rem;
+  margin-left: 3rem;
 
-	h2 {
-		color: var(--heading);
-	}
+  h2 {
+    color: var(--heading);
+  }
 
-	p {
-		margin-left: 0rem;
-		margin-right: 0.1rem;
-		// color: rgba(63, 60, 60, 0.801);
-		margin-bottom: 0;
-		color: var(--textTinted);
-	}
+  p {
+    margin-left: 0rem;
+    margin-right: 0.1rem;
+    // color: rgba(63, 60, 60, 0.801);
+    margin-bottom: 0;
+    color: var(--textTinted);
+  }
 
-	@media (max-width: 480px) {
-		margin-left: 0.5rem;
-		h2 {
-			margin-top: 0rem;
-			margin-bottom: 0.5rem;
-		}
-		p {
-			margin-left: 0.2rem;
-			margin-right: 0.1rem;
-			font-size: 14px;
-			margin-bottom: 0.5rem;
-		}
-	}
+  @media (max-width: 480px) {
+    margin-left: 0.5rem;
+    h2 {
+      margin-top: 0rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      margin-left: 0.2rem;
+      margin-right: 0.1rem;
+      font-size: 14px;
+      margin-bottom: 0.5rem;
+    }
+  }
 }
 
 .contentContainer {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .videoContainer {
-	max-width: 70%;
-	margin: auto;
-	margin-top: 2rem;
-	position: relative;
-	video {
-		border-radius: 1rem;
-		max-width: 100%;
-		// box-shadow: 18px 18px 18px rgba(0, 0, 0, 0.678);
-	}
-	z-index: 1;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 2rem;
+  position: relative;
+  video {
+    border-radius: 1rem;
+    max-width: 100%;
+    // box-shadow: 18px 18px 18px rgba(0, 0, 0, 0.678);
+  }
+  z-index: 1;
 
-	@media (max-width: 480px) {
-		max-width: 95%;
-		margin-top: 0.5rem;
-	}
+  @media (max-width: 480px) {
+    max-width: 95%;
+    margin-top: 0.5rem;
+  }
 }
 
 .linksContainer {
-	width: 70%;
-	height: 50%;
-	margin: auto;
-	padding: 10px;
-	border-radius: 0.7rem;
-	margin-top: 1rem;
-	color: #1f1d1d;
-	display: flex;
-	flex-direction: column;
+  width: 70%;
+  height: 50%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 0.7rem;
+  margin-top: 1rem;
+  color: #1f1d1d;
+  display: flex;
+  flex-direction: column;
 
-	@media (max-width: 480px) {
-		width: 95%;
-		font-size: 12px;
-		padding: 5px;
-		margin-top: 0.5rem;
-	}
+  @media (max-width: 480px) {
+    width: 95%;
+    font-size: 12px;
+    padding: 5px;
+    margin-top: 0.5rem;
+  }
 
-	.tags {
-		display: flex;
-		flex-direction: row;
-		margin-bottom: 1rem;
+  .tags {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
 
-		h3 {
-			display: inline-block;
-			padding: 0;
-			margin: 0;
-			margin-right: 1rem;
-			margin-right: 0.5rem;
-			color: var(--heading);
-		}
+    h3 {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      margin-right: 1rem;
+      margin-right: 0.5rem;
+      color: var(--heading);
+    }
 
-		@media (max-width: 1000px) {
-			flex-direction: column;
-			h3 {
-				margin-bottom: 0.5rem;
-			}
-		}
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      h3 {
+        margin-bottom: 0.5rem;
+      }
+    }
 
-		.h3ele {
-			display: inline-block;
-			min-width: 100px;
-		}
+    .h3ele {
+      display: inline-block;
+      min-width: 100px;
+    }
 
-		.tagElements {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			gap: 0.8rem;
+    .tagElements {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.8rem;
 
-			.tag {
-				padding: 1px 0.6rem 3px 0.6rem;
-				border-radius: 1rem;
-				color: white;
-				background-color: var(--heading);
-			}
-		}
-	}
+      .tag {
+        padding: 1px 0.6rem 3px 0.6rem;
+        border-radius: 1rem;
+        color: white;
+        background-color: var(--heading);
+      }
+    }
+  }
 }
 
 .links {
-	display: flex;
-	flex-direction: row;
-	gap: 2rem;
-	color: var(--textTinted2);
-	cursor: pointer;
-	margin-top: 1rem;
-	.link {
-		border-bottom: solid 1.5px #fd6449;
-		border-right: solid 1.5px #fd6449;
-		border-radius: 2px 2px 0 0;
-		padding: 0.1rem 0.8rem;
-		font-size: 16px;
-		background-color: var(--bgBoxHover);
-		&:hover {
-			opacity: 0.8;
-		}
-	}
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  color: var(--textTinted2);
+  cursor: pointer;
+  margin-top: 1rem;
+  .link {
+    border-bottom: solid 1.5px #fd6449;
+    border-right: solid 1.5px #fd6449;
+    border-radius: 2px 2px 0 0;
+    padding: 0.1rem 0.8rem;
+    font-size: 16px;
+    background-color: var(--bgBoxHover);
+    transition: all 0.2s;
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      scale: (0.9);
+    }
+  }
 }
 
 .heading {
-	@include heading;
+  @include heading;
+}
+
+.github {
+  display: block;
+  max-width: fit-content;
+  margin: auto;
+}
+
+.iconName {
+  padding-left: 0.3rem;
+  color: #fd6449;
+}
+
+.iconName:hover {
+  opacity: 0.8;
 }
