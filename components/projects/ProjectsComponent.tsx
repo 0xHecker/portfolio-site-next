@@ -1,7 +1,8 @@
 import React, { Suspense, useEffect, useRef } from 'react';
-import styles from '../../styles/projects/projects.module.scss';
+import { FaGithub } from 'react-icons/fa';
 import { MdNorthEast } from 'react-icons/md';
-import {projects} from '../../utils/Projects';
+import styles from '../../styles/projects/projects.module.scss';
+import { projects } from '../../utils/Projects';
 
 const ProjectsComponent = () => {
 	const videoRef = useRef(null);
@@ -70,7 +71,11 @@ const ProjectsComponent = () => {
 								{/* Redirects */}
 								<div className={styles.links}>
 									<div className={styles.link}>
-										<a>
+										<a
+											href={project.links[0] as string}
+											rel="noreferrer"
+											target={'_blank'}
+										>
 											Source Code&nbsp;
 											<span
 												style={{ fontWeight: 'bolder' }}
@@ -80,7 +85,11 @@ const ProjectsComponent = () => {
 										</a>
 									</div>
 									<div className={styles.link}>
-										<a>
+										<a
+											href={project.links[1] as string}
+											rel="noreferrer"
+											target={'_blank'}
+										>
 											Live&nbsp;
 											<span
 												style={{ fontWeight: 'bolder' }}
@@ -95,10 +104,24 @@ const ProjectsComponent = () => {
 					</div>
 				);
 			})}
+			<div>
+				<h2></h2>
+			</div>
+
+			<div className={styles.github}>
+				<span>More projects on</span>
+				<a
+					target="_blank"
+					href="https://github.com/0xHecker"
+					rel="noopener noreferrer"
+					className={styles.iconName}
+				>
+					Github <strong>↗︎</strong>
+				</a>
+			</div>
 		</section>
 	);
 };
-// drop a message to hire me or just say hi
 
 export default ProjectsComponent;
 

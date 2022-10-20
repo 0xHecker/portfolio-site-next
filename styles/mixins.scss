@@ -1,29 +1,78 @@
 @mixin heading {
-	display: inline-block;
-	font-size: 1.7rem;
-	font-weight: 600;
-	position: relative;
-	cursor: pointer;
-	z-index: 2;
-	margin-bottom: 2rem;
-	&::after {
-		content: '';
-		width: 100%;
-		height: 35%;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		z-index: -1;
-		background-color: rgba(
-			251,
-			96,
-			96,
-			0.5
-		); //rgba(148, 238, 107, 0.705);
-		transition: all 0.3s;
-	}
-	&:hover::after {
-		height: 100%;
-		transform-origin: bottom;
-	}
+  display: inline-block;
+  font-size: 1.7rem;
+  font-weight: 600;
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+  margin-bottom: 2rem;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 35%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: rgba(251, 96, 96, 0.5); //rgba(148, 238, 107, 0.705);
+    transition: all 0.3s;
+  }
+  &:hover::after {
+    height: 100%;
+    transform-origin: bottom;
+  }
+}
+
+@mixin input($width) {
+  padding: 15px 15px;
+  color: var(--text);
+  font-size: 17px;
+  font-family: var(--fontFamily);
+  background-color: var(--bg);
+  background-color: var(--inputBg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  -webkit-appearance: none;
+
+  width: $width;
+  max-width: 100%;
+  padding-left: 35px;
+  transition: all 150ms ease-out;
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: var(--brand);
+    outline: none;
+    box-shadow: 0 0 0 4px var(--brandTinted);
+  }
+}
+
+@mixin bwButton {
+  display: inline-block;
+  margin-top: 10px;
+  border: solid 2px var(--bgInverse);
+  border-radius: 10px;
+  padding: 10px 25px;
+  font-size: larger;
+  cursor: pointer;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 0px 2px 0px var(--bgInverse);
+  &:hover {
+    background-color: var(--bgInverse);
+    color: var(--bg);
+
+    box-shadow: 0px 5px 5px -5px var(--bgInverse);
+    transform: scale(1.03);
+  }
+  &:active {
+    background-color: var(--bgInverse);
+    color: var(--bg);
+    box-shadow: none;
+    transform: scale(0.98);
+  }
+  @media screen and (max-width: 480px) {
+    align-items: center;
+    justify-content: center;
+    padding: 7px 18px;
+  }
 }

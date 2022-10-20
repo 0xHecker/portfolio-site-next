@@ -1,14 +1,18 @@
-import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { MdNorthEast } from "react-icons/md";
-import styles from "../styles/mainheader.module.scss";
+import React from 'react';
+import {
+	FaGithub,
+	FaLinkedin,
+	FaTwitter,
+} from 'react-icons/fa';
+import { MdNorthEast } from 'react-icons/md';
+import styles from '../styles/mainheader.module.scss';
 
 export function SocialIcons({}) {
 	return (
 		<>
 			<div className={styles.socialIconsContainer}>
 				<div className={styles.header__socialIcons}>
-					<div className={styles.github}>
+					<div>
 						<FaGithub />
 						<a
 							target="_blank"
