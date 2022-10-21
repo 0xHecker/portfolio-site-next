@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { SocialIcons } from './../components/SocialIcons'
 import { MainHeader } from '../components/MainHeader'
 import React from 'react'
@@ -11,6 +10,7 @@ import IconsComponent from 'components/IconsComponent'
 import BreakComponent from 'components/BreakComponent'
 import ProjectsComponent from 'components/projects/ProjectsComponent'
 import MessageComponent from 'components/message/MessageComponent'
+import { Footer } from 'components/Footer'
 
 const Home: NextPage = () => {
   return (
@@ -21,16 +21,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NavBar />
       <main className={styles.header_container}>
+        <NavBar />
         <MainHeader />
         <SocialIcons />
         <BreakComponent marginTop="4rem" />
         <IconsComponent />
         <ProjectsComponent />
         <BreakComponent marginTop="2rem" />
-
         <MessageComponent />
+        <Footer />
       </main>
     </>
   )

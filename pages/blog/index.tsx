@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo'
 import { Search } from 'react-feather'
 
 // Components
-import Page from 'components/page'
+import { Page } from 'components/page'
 import PageHeader from 'components/pageheader'
 import Subscribe from 'components/subscribe'
 import Input from 'components/input'
