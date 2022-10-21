@@ -107,6 +107,7 @@ const MessageComponent = () => {
               />
               <MessageSquare className={styles.inputIcon2} />
             </div>
+
             <div className={styles.reInputWrapper}>
               <ReCAPTCHA ref={refCaptcha} theme="light" sitekey={process.env.NEXT_PUBLIC_SITE_KEY as string} />
             </div>

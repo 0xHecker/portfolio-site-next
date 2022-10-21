@@ -1,0 +1,41 @@
+.footer {
+  width: 100%;
+  padding: 30px 0;
+  border-top: 1px solid var(--border);
+
+  p {
+    opacity: 0.3;
+  }
+}
+.copyright {
+  text-align: center;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-bottom: 50px;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+
+  li {
+    margin-bottom: 0;
+    color: var(--textTinted);
+    font-weight: 500;
+    transition: color 0.2s ease-out;
+
+    &:hover,
+    &:focus {
+      color: var(--text);
+    }
+  }
+}

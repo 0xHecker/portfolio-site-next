@@ -12,7 +12,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter()
 
   return (
-    <ThemeProvider defaultTheme="system">
+    <ThemeProvider defaultTheme="light">
       <SEO />
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
