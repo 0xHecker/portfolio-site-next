@@ -17,7 +17,7 @@ as a matter of fact useState is built on top of `useReducer` you can think of `u
 **let's see how to use `useReducer` hook first. then we will deep dive into this hook**
 // Img
 
-```jsx
+```jsx {2-3,6-8} showLineNumbers
 const  countReducer = (prevState, action) =>  {
 	console.log(action)
 	// logs whatever we passed in dispatch(/* smth */)
@@ -46,7 +46,7 @@ You have to focus on terms **state**, **dispatch**, **action**, **reducerFunctio
 - **action:** action is a value whatever we passed through function.
 - **reducerFunction:** it is a function through which we take control over and manage our state.
 
-**flow example:**
+## flow example:
 
 1. let's say we clicked the button which calls dispatch(count + 1)
 2. this dispatch value go through countReducer function where the new state will be returned.
@@ -59,7 +59,7 @@ You have to focus on terms **state**, **dispatch**, **action**, **reducerFunctio
 
 **let's add some more things to our counter example with useReducer**
 
-```jsx
+```jsx showLineNumbers
 function countReducer(prevState, action) {
  const {type, step} = action
  switch (type) {
@@ -102,7 +102,7 @@ now, I'm sure you got a good understanding of how useReducer works. Let's see so
 
 Let's add an input field to our previous example..
 
-```jsx
+```jsx showLineNumbers
 import "./styles.css";
 import React from "react";
 
@@ -166,23 +166,23 @@ but hang on.. we have a bug in the above code.
 I did it intentionally to reach it in your core memory XD because it is a very common mistake people do.
 the bug here is, whenever you change a state, for example take `increment` case
 
-```jsx
-    case "increment": {
-      return {
-        count: prevState.count + step
-      }}
+```jsx showLineNumbers
+	case "increment": {
+		return {
+			count: prevState.count + step
+		}}
 ```
 
 we are esentially overriding the whole state with just count in the object. the new state will set to `{cont: prevState.count + step}` we loose our `username` state.
 This is why we should spread the previous state in the object we are returning.
 **this is the correct way of doing it**
 
-```jsx
-    case "increment": {
-      return {
-      ...prevState,
-        count: prevState.count + step
-      }}
+```diff showLineNumbers
+case "increment": {
+	return {
++      ...prevState,
+		count: prevState.count + step
+	}}
 ```
 
 We should always spread the previous state value in the return object. else we'll end up overriding bunch of other states.
@@ -191,13 +191,14 @@ We should always spread the previous state value in the return object. else we'l
 
 **tip :** If you are managing similar state with the `useState` hook you can do like this
 
-```jsx
+```tsx showLineNumbers
 const [countState, setCountState] = React.useState({ count: 0, name: "" });
 const handleClick = () =>
 	setCountState((prevState) => {
 		return { ...prevState, count: prevState.count + 1 };
 	});
 ```
+
 
 oh wait a min..
 if we can do this whole state thing simply using useState hook what's the point of using this complicated stuff?!!
@@ -207,4 +208,4 @@ yeah right, you don't need to use this if useState can get the job done. most pe
 
 it's wise to use useReducer when one element of your state relies on the value of another element of your state in order to update or when the state consists of more than primitive values, like nested object or arrays. if not, you are better off using `useState`
 
-**tip :** do not mix up and add lots of unrelated states into a single reducer. whenever a single state changes you rerender the components which are using this state managed by reducer to get the whole state and UI updated. Imagine one of the component that is so heavy to render and takes lots of resources and time and you re render it unnecessarly. This is why you should only put states which are interrelated together in a single reducer and make separate reducers in order to avoid unnecessary rerenders.
+**tip :** do not mix up and add lots of unrelated states into a single reducer.<br /> whenever a single state changes you rerender the components which are using this state managed by reducer to get the whole state and UI updated. Imagine one of the component that is so heavy to render and takes lots of resources and time and you re render it unnecessarly. This is why you should only put states which are interrelated together in a single reducer and make separate reducers in order to avoid unnecessary rerenders.

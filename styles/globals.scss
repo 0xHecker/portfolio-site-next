@@ -1,140 +1,352 @@
 @font-face {
-	font-weight: 300;
-	font-family: 'Outfit';
-	font-style: normal;
-	src: url('/fonts/outfit-v4-latin-regular.woff2')
-		format('woff2');
+  font-weight: 300;
+  font-family: 'Outfit';
+  font-style: normal;
+  src: url('/fonts/outfit-v4-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
-	font-weight: 500;
-	font-family: 'Outfit';
-	font-style: normal;
-	src: url('/fonts/outfit-v4-latin-500.woff2')
-		format('woff2');
+  font-weight: 500;
+  font-family: 'Outfit';
+  font-style: normal;
+  src: url('/fonts/outfit-v4-latin-500.woff2') format('woff2');
 }
 
 @font-face {
-	font-weight: 700;
-	font-family: 'Outfit';
-	font-style: normal;
-	src: url('/fonts/outfit-v4-latin-700.woff2')
-		format('woff2');
+  font-weight: 700;
+  font-family: 'Outfit';
+  font-style: normal;
+  src: url('/fonts/outfit-v4-latin-700.woff2') format('woff2');
 }
 
 @font-face {
-	font-weight: 900;
-	font-family: 'Outfit';
-	font-style: normal;
-	src: url('/fonts/outfit-v4-latin-900.woff2')
-		format('woff2');
+  font-weight: 300;
+  font-family: 'Ascender';
+  font-style: normal;
+  src: url('/fonts/AscenderSansMonoRegular.woff2') format('woff2');
 }
 
 :root {
-	--bg: #fff;
-	--bgInverse: #161515;
-	--text: #000;
-	--textTinted: rgba(63, 60, 60, 0.801);
-	--textTinted2: rgba(63, 60, 60, 0.801);
-	--bgBoxHover: rgba(255, 211, 211, 0.658);
-	--brand: #fd6449;
-	--brandActive: #b3613b;
-	--projectsp: #312e2e;
-	--heading: rgba(251, 96, 96, 0.925);
-	--brandTinted: rgba(227, 131, 86, 0.2);
-	--brandTintedActive: rgba(227, 131, 86, 0.33);
-	--headerBg: rgba(255, 255, 255, 0.6);
-	--border: rgba(0, 0, 0, 0.08);
-	--borderActive: rgba(0, 0, 0, 0.25);
-	--star: #fece02;
-	--fontFamily: 'Outfit', -apple-system, BlinkMacSystemFont,
-		Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
-		Droid Sans, Helvetica Neue, sans-serif;
-	--boxBg: #f3f3f3;
-	--siteWidth: 83ch;
-	--inputBg: white;
-	--likeButton: rgba(0, 0, 0, 0.05);
-	--likeButtonHover: rgba(0, 0, 0, 0.1);
-	--shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-	--secondary: #caca28;
-	--transparent: rgba(255, 255, 255, 0);
-	--shadowLow: rgba(
-		231,
-		156,
-		106,
-		0.555
-	); //rgba(0, 0, 0, 0.219);
-	--shadowHigh: rgba(
-		243,
-		157,
-		99,
-		0.726
-	); // rgba(0, 0, 0, 0.5);
+  --bg: #fff;
+  --bgInverse: #161515;
+  --text: #000;
+  --textTinted: rgba(63, 60, 60, 0.801);
+  --textTinted2: rgba(63, 60, 60, 0.801);
+  --bgBoxHover: rgba(255, 211, 211, 0.658);
+  --brand: #fd6449;
+  --brandActive: #b3613b;
+  --projectsp: #312e2e;
+  --heading: rgba(251, 96, 96, 0.925);
+  --brandTinted: rgba(227, 131, 86, 0.2);
+  --brandTintedActive: rgba(227, 131, 86, 0.33);
+  --headerBg: rgba(255, 255, 255, 0.6);
+  --border: rgba(0, 0, 0, 0.08);
+  --borderActive: rgba(0, 0, 0, 0.25);
+  --star: #fece02;
+  --fontFamily: 'Outfit', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+  --boxBg: #f3f3f3;
+  --siteWidth: 83ch;
+  --inputBg: white;
+  --likeButton: rgba(0, 0, 0, 0.05);
+  --likeButtonHover: rgba(0, 0, 0, 0.1);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --secondary: #caca28;
+  --transparent: rgba(255, 255, 255, 0);
+  --shadowLow: rgba(231, 156, 106, 0.555); //rgba(0, 0, 0, 0.219);
+  --shadowHigh: rgba(243, 157, 99, 0.726); // rgba(0, 0, 0, 0.5);
 }
 
 [data-theme='dark'] {
-	--bg: #161515;
-	--bgInverse: #fff;
-	--text: rgb(255, 255, 255);
-	--textTinted: rgba(255, 255, 255, 0.699);
-	--textTinted2: rgba(241, 236, 236, 0.911);
-	--headerBg: rgba(22, 21, 21, 0.6);
-	--border: rgba(255, 255, 255, 0.08);
-	--borderActive: rgba(255, 255, 255, 0.25);
-	--boxBg: #1f1e1d;
-	--bgBoxHover: rgb(85, 85, 85);
-	--star: #fef102;
-	--inputBg: #292929;
-	--likeButton: rgba(255, 255, 255, 0.2);
-	--likeButtonHover: rgba(255, 255, 255, 0.3);
-	--secondary: yellow;
-	--transparent: rgba(0, 0, 0, 0);
+  --bg: #161515;
+  --bgInverse: #fff;
+  --text: rgb(255, 255, 255);
+  --textTinted: rgba(255, 255, 255, 0.699);
+  --textTinted2: rgba(241, 236, 236, 0.911);
+  --headerBg: rgba(22, 21, 21, 0.6);
+  --border: rgba(255, 255, 255, 0.08);
+  --borderActive: rgba(255, 255, 255, 0.25);
+  --boxBg: #1f1e1d;
+  --bgBoxHover: rgb(85, 85, 85);
+  --star: #fef102;
+  --inputBg: #292929;
+  --likeButton: rgba(255, 255, 255, 0.2);
+  --likeButtonHover: rgba(255, 255, 255, 0.3);
+  --secondary: yellow;
+  --transparent: rgba(0, 0, 0, 0);
 }
+
 html,
 body {
-	margin: 0;
-	padding: 0;
-	font-family: var(--fontFamily);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  font-family: var(--fontFamily);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 *,
 *:before,
 *:after {
-	box-sizing: border-box;
-	margin-top: 0;
+  box-sizing: border-box;
+  margin-top: 0;
 }
 
 body {
-	color: var(--text);
-	background-color: var(--bg);
-	transition: background 0.5s;
+  color: var(--text);
+  background-color: var(--bg);
+  transition: background 0.5s;
 }
 
 h1 {
-	margin-bottom: 30px;
-	font-size: 32px;
-	letter-spacing: 1px;
+  margin-bottom: 30px;
+  font-size: 32px;
+  letter-spacing: 1px;
 
-	@media (min-width: 480px) {
-		font-size: 56px;
-	}
+  @media (min-width: 480px) {
+    font-size: 56px;
+  }
 }
 
 h2 {
-	margin-bottom: 30px;
-	font-weight: 300;
-	font-size: 18px;
-	letter-spacing: 0.6px;
+  margin-bottom: 30px;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0.6px;
 
-	@media (min-width: 480px) {
-		margin-bottom: 20px;
-		font-size: 24px;
-	}
+  @media (min-width: 480px) {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+}
+
+// font-size: 14px;
+// font-family: Menlo, Monaco, 'Lucida Console', 'Courier New', Courier, monospace;
+// line-height: 1.375;
+// direction: ltr;
+// text-align: left;
+
+/**
+ * MIT License
+ * Copyright (c) 2018 Sarah Drasner
+ * Sarah Drasner's[@sdras] Night Owl
+ * Ported by Sara vieria [@SaraVieira]
+ * Added by Souvik Mandal [@SimpleIndian]
+ */
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: #d6deeb;
+  font-family: 'Ascender', Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  font-size: 15px;
+
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*='language-']::-moz-selection,
+pre[class*='language-'] ::-moz-selection,
+code[class*='language-']::-moz-selection,
+code[class*='language-'] ::-moz-selection {
+  text-shadow: none;
+  background: rgba(29, 59, 83, 0.99);
+}
+
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
+  text-shadow: none;
+  background: rgba(29, 59, 83, 0.99);
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  color: white;
+  background: #011627;
+}
+
+:not(pre) > code[class*='language-'] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+  color: rgb(151, 170, 170);
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: rgb(199, 146, 234);
+}
+
+.namespace {
+  color: rgb(178, 204, 214);
+}
+
+.token.deleted {
+  background-color: rgba(239, 68, 68, 0.336); /* Set deleted line (-) color */
+  width: calc(100% + 50px);
+}
+
+.token.symbol,
+.token.property {
+  color: rgb(128, 203, 196);
+}
+
+.token.tag,
+.token.operator,
+.token.keyword {
+  color: rgb(127, 219, 202);
+}
+
+.token.boolean {
+  color: rgb(255, 88, 116);
+}
+
+.token.number {
+  color: rgb(247, 140, 108);
+}
+
+.token.constant,
+.token.function,
+.token.builtin,
+.token.char {
+  color: rgb(130, 170, 255);
+}
+
+.token.selector,
+.token.doctype {
+  color: rgb(199, 146, 234);
+  font-style: italic;
+}
+
+.token.attr-name,
+.token.inserted {
+  color: rgb(173, 219, 103);
+}
+.token.inserted {
+  background-color: rgba(16, 185, 129, 0.295); /* Set inserted line (+) color */
+}
+
+.token.string,
+.token.url,
+.token.entity,
+.language-css .token.string,
+.style .token.string {
+  color: rgb(173, 219, 103);
+}
+
+.token.class-name,
+.token.atrule,
+.token.attr-value {
+  color: rgb(255, 203, 139);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: rgb(214, 222, 235);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  color: rgb(156, 163, 175); /* Line number color */
+  content: attr(line);
+}
+
+.highlight-line {
+  position: relative;
+  display: block;
+  margin-right: -25px;
+  margin-left: -25px;
+  padding-left: 25px;
+  background-color: #2c4ee588;
+
+  &::after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 0.4rem;
+    background-color: #2ce5a8dc;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media print {
+  code[class*='language-'],
+  pre[class*='language-'] {
+    text-shadow: none;
+    overflow-wrap: break-word;
+    overflow: visible;
+    overflow-x: scroll;
+
+    word-wrap: break-word;
+    a[href^="https://"]:after, a[href^="https://"]:after
+    {
+      content: ' (' attr(href) ')';
+    }
+    p a[href]::after {
+      content: ' (' attr(href) ')';
+    }
+  }
+  code {
+    overflow-wrap: break-word;
+    overflow: visible;
+    overflow-x: scroll;
+  }
+}
+
+@media print {
+  a[href^="https://"]:after, a[href^="https://"]:after
+  {
+    content: ' (' attr(href) ')';
+  }
+  p a[href]::after {
+    content: ' (' attr(href) ')';
+  }
+  code {
+    overflow: visible;
+  }
 }

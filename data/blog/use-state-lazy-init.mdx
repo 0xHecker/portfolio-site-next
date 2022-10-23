@@ -21,7 +21,7 @@ function  useState<T>(initialState: T | (() =>  T)): [T, Dispatch<SetStateAction
 - `useState` hook is an abstraction of `useDispatch` hook of basic level.
 - You can think of `[state, setState]` as `[state, dispatch]` that we get from [`useReducer`](https://reactjs.org/docs/hooks-reference.html#usereducer) where we modify the state using `dispatch` function, so `setState` is a simplified `dispatch` function.
 
-\
+
 &nbsp;
 
 ## Lazy Initialization of state
@@ -31,10 +31,8 @@ React useState hook can take a callback function as an initial value, this is ca
 Which means the return value of callback function going to set the state only once throughout the lifecycle of that component when the component mounts and rendered initially.
 
 ```jsx
-const [state, setState] =
-	useState <
-	string >
-	(() => {
+  const [state, setState] =
+	useState<string>(() => {
 		console.log("function call"); // this will log for only once in the lifecycle of the component
 		const initialState: string = someExpensiveComputation(props);
 		return initialState;
@@ -138,6 +136,8 @@ myState(10);
 Here is a [ codesandbox](https://codesandbox.io/s/busy-kapitsa-c7pkfm?file=/src/App.js:365-395) you can play with.
 \
 &nbsp;
+
+<Warning type={'info'}>Although it is possible to store functions with useState hook don't abuse it, consider using useCallback hook for storing functions.</Warning>
 
 > Although it is possible to store functions with useState hook don't abuse it, consider using useCallback hook for storing functions.
 
