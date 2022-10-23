@@ -24,7 +24,7 @@ const Blog = ({ posts }: BlogProps): JSX.Element => {
   const [currentSearch, setCurrentSearch] = useState('')
 
   const seoTitle = 'Blog | Sai Shanmukh'
-  const seoDesc = 'I write about development, React, CSS, Typescript and more!'
+  const seoDesc = 'I write about WebDev, React, CSS, Typescript and more!'
   const filteredPosts = posts
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     .filter(({ title, summary, tags }) => {
