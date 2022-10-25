@@ -42,3 +42,35 @@
   font-size: 22px;
   text-align: center;
 }
+
+.postTags {
+  padding: 3px 10px;
+  margin-right: 0.7rem;
+  font-size: 0.9em;
+  border-radius: 1rem;
+  color: var(--textTinted3);
+
+  @media (max-width: 480px) {
+    font-size: 0.8em;
+  }
+}
+
+.tag0 {
+  background-color: rgba(228, 122, 115, 0.397);
+}
+
+.tag1 {
+  background-color: rgba(160, 243, 104, 0.459);
+}
+
+.tag2 {
+  background-color: rgba(60, 173, 238, 0.438);
+}
+
+.tag3 {
+  background-color: rgba(255, 228, 196, 0.603);
+}
+
+.tag4 {
+  background-color: rgba(255, 84, 155, 0.39);
+}

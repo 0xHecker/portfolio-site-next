@@ -15,6 +15,7 @@ import { pick } from '@contentlayer/client'
 import { allPosts, Post } from 'contentlayer/generated'
 
 import styles from './index.module.scss'
+import { MainTags } from 'components/tagsMain'
 
 type BlogProps = {
   posts: Post[]
@@ -54,11 +55,15 @@ const Blog = ({ posts }: BlogProps): JSX.Element => {
       />
 
       <PageHeader title="Blog" description={seoDesc}>
-        <div className={styles.inputWrapper}>
-          <Input className={styles.input} value={currentSearch} onChange={handleInputChange} placeholder="Search posts…" type="search" />
-          <Search className={styles.inputIcon} />
-        </div>
+        <>
+          <div className={styles.inputWrapper}>
+            <Input className={styles.input} value={currentSearch} onChange={handleInputChange} placeholder="Search posts…" type="search" />
+            <Search className={styles.inputIcon} />
+          </div>
+          <MainTags posts={posts} />
+        </>
       </PageHeader>
+
       <PostList posts={filteredPosts} />
       <Subscribe title="Subscribe to the newsletter" />
     </Page>
@@ -66,7 +71,7 @@ const Blog = ({ posts }: BlogProps): JSX.Element => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = allPosts.map(post => pick(post, ['slug', 'title', 'summary', 'publishedAt', 'image', 'readingTime']))
+  const posts = allPosts.map(post => pick(post, ['slug', 'title', 'summary', 'publishedAt', 'image', 'readingTime', 'tags']))
 
   return {
     props: { posts },
