@@ -6,16 +6,12 @@ summary: "React useReducer hook Simplified"
 tags: ["React", "AdvancedHooks", "Reducer"]
 ---
 
-# React useReducer Hook simplified
 
-to be honest useReducer hook feels like unga bunga hook if you are using it for the first time, but this is simple uncluttered article to get familiar with useReducer hook.
+**To be honest useReducer hook feels like unga bunga hook if you are using it for the first time, but this is simple uncluttered article to get familiar with useReducer hook. If you have used `useState` hook for managing the state like simple strings, arrays, objects you are going to have good time here. `useReducer` is used for this exact purpose that is for managing state. but it gives more flexibility for us to control and update the state.**
 
-If you have used `useState` hook for managing the state like simple strings, arrays, objects you are going to have good time here. `useReducer` is used for this exact purpose that is for managing state. but it gives more flexibility for us to control and update the state.
-
-as a matter of fact useState is built on top of `useReducer` you can think of `useState` hook as a simplified version of `useReducer`
+As a matter of fact useState is built on top of `useReducer` you can think of `useState` hook as a simplified version of `useReducer`**
 
 **let's see how to use `useReducer` hook first. then we will deep dive into this hook**
-// Img
 
 ```jsx {2-3,6-8} showLineNumbers
 const  countReducer = (prevState, action) =>  {
@@ -35,9 +31,9 @@ function  Counter({initialCount: 0}) {
 
 Here we just made a counter which we can increment on a button click.
 
-- we will get `[state, dispatch]` array from `useReducer`
+- We will get `[state, dispatch]` array from `useReducer`
 - `useReducer` takes _Reducer function_, _initial state_ as arguments
-- _Reducer function_ accepts two arguments `reducerFn(previousState, action)` and returns `newState`
+- **Reducer function** accepts two arguments `reducerFn(previousState, action)` and returns `newState`
 
 You have to focus on terms **state**, **dispatch**, **action**, **reducerFunction** here
 
@@ -46,16 +42,16 @@ You have to focus on terms **state**, **dispatch**, **action**, **reducerFunctio
 - **action:** action is a value whatever we passed through function.
 - **reducerFunction:** it is a function through which we take control over and manage our state.
 
-## flow example:
+## Flow example:
 
-1. let's say we clicked the button which calls dispatch(count + 1)
-2. this dispatch value go through countReducer function where the new state will be returned.
-3. now `action` value is equal to `count + 1` which is 0 + 1. (`action` = 1)
-4. we are returning the `action` value in the reducerFunction
-5. so our `<Counter />` will rerender because of our state is updated.
-6. now useReducer gives `[count, dispatch]` array where, our count value has updated to `1`
+1. Let's say we clicked the button which calls dispatch(count + 1)
+2. This dispatch value go through countReducer function where the new state will be returned.
+3. Now `action` value is equal to `count + 1` which is 0 + 1. (`action` = 1)
+4. We are returning the `action` value in the reducerFunction
+5. So our `<Counter />` will rerender because of our state is updated.
+6. Now useReducer gives `[count, dispatch]` array where, our count value has updated to`1`
 
-![image](https://user-images.githubusercontent.com/91829843/187974612-2d1b0f0e-eedc-4312-998b-c24dfc65c7dd.png)
+<Image src="https://user-images.githubusercontent.com/91829843/187974612-2d1b0f0e-eedc-4312-998b-c24dfc65c7dd.png" width="850px" height="650px" alt="React useDispatch hook lifecycle" caption="React useDispatch hook lifecycle" />
 
 **let's add some more things to our counter example with useReducer**
 
@@ -202,10 +198,13 @@ const handleClick = () =>
 
 oh wait a min..
 if we can do this whole state thing simply using useState hook what's the point of using this complicated stuff?!!
-yeah right, you don't need to use this if useState can get the job done. most people make use of useReducer in codebases for the sake of maintainability, readability and to have better control over the state.
+yeah right, you don't need to use this if useState can get the job done. most people make use of useReducer in codebases for the sake of maintainability, readability and to have better control over the state espicially in Forms.
 
 ### When to use useReducer:
 
 it's wise to use useReducer when one element of your state relies on the value of another element of your state in order to update or when the state consists of more than primitive values, like nested object or arrays. if not, you are better off using `useState`
 
-**tip :** do not mix up and add lots of unrelated states into a single reducer.<br /> whenever a single state changes you rerender the components which are using this state managed by reducer to get the whole state and UI updated. Imagine one of the component that is so heavy to render and takes lots of resources and time and you re render it unnecessarly. This is why you should only put states which are interrelated together in a single reducer and make separate reducers in order to avoid unnecessary rerenders.
+## Tips:
+- Do not mix up and add lots of unrelated states into a single reducer.
+- whenever a single state changes you rerender the components which are using this state managed by reducer to get the whole state and UI updated.
+- Imagine one of the component that is so heavy to render and takes lots of resources and time and you re render it unnecessarly, the perfomance might degrade. <br /> This is why you should only put states which are interrelated together in a single reducer and make separate reducers in order to avoid unnecessary rerenders.

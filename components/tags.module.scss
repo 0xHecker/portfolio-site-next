@@ -1,13 +1,17 @@
 .tags {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 0px;
   margin: 0 auto;
   margin-bottom: 60px;
   padding-left: 0;
   list-style: none;
+  margin-top: 1rem;
 
   li {
-    margin: 0 15px;
+    margin: 0 5px;
 
     &:first-of-type {
       margin-left: 0;
@@ -16,15 +20,70 @@
     &:last-of-type {
       margin-right: 0;
     }
+  }
 
-    a {
-      opacity: 0.7;
-      transition: opacity 250ms ease-out;
+  @media (max-width: 480px) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
 
-      &:hover,
-      &:focus {
-        opacity: 1;
-      }
-    }
+.postTags {
+  padding: 3px 10px;
+  margin-right: 0.7rem;
+  font-size: 0.9em;
+  border-radius: 1rem;
+  color: var(--textTinted3);
+  transition: all 0.5s;
+
+  @media (max-width: 480px) {
+    font-size: 0.8em;
+  }
+}
+
+.tag {
+  background-color: var(--heading);
+  color: white;
+}
+
+.tag0 {
+  background-color: rgba(228, 122, 115, 0.397);
+
+  &:hover,
+  &:focus {
+    background-color: rgba(228, 122, 115, 0.61);
+  }
+}
+
+.tag1 {
+  background-color: rgba(160, 243, 104, 0.459);
+
+  &:hover,
+  &:focus {
+    background-color: rgba(160, 243, 104, 0.63);
+  }
+}
+
+.tag2 {
+  background-color: rgba(60, 173, 238, 0.438);
+  &:hover,
+  &:focus {
+    background-color: rgba(60, 173, 238, 0.63);
+  }
+}
+
+.tag3 {
+  background-color: rgba(255, 228, 196, 0.438);
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 228, 196, 0.63);
+  }
+}
+
+.tag4 {
+  background-color: rgba(255, 84, 155, 0.31);
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 84, 155, 0.43);
   }
 }

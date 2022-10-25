@@ -66,6 +66,7 @@ const Post = ({ post, related }: PostProps): JSX.Element => {
     month: 'short',
     year: 'numeric',
   })
+
   const formattedUpdatedDate = post.updatedAt
     ? new Date(post.updatedAt).toLocaleString('en-UK', {
         day: '2-digit',
@@ -118,12 +119,12 @@ const Post = ({ post, related }: PostProps): JSX.Element => {
           {post.updatedAt ? ` (Updated ${formattedUpdatedDate})` : ''} <span>&middot;</span> {post.readingTime.text}
         </p>
       </PageHeader>
+      <Tags tags={post.tags} />
+
       <article className={styles.article}>
         <Component components={components} />
       </article>
 
-      <Tags tags={post.tags} />
-      <Subscribe className={styles.subscribe} />
       {related.length > 0 && (
         <>
           <h2 className={styles.relatedHeading}>Related Posts</h2>
@@ -154,7 +155,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     /* return the first three */
     .filter((_, i) => i < 3)
     /* only return what's needed to render the list */
-    .map(p => pick(p, ['slug', 'title', 'summary', 'publishedAt', 'image', 'readingTime']))
+    .map(p => pick(p, ['slug', 'title', 'summary', 'publishedAt', 'image', 'readingTime', 'tags']))
 
   return {
     props: {
