@@ -11,6 +11,7 @@
   "dependencies": {
     "@contentlayer/client": "^0.2.8",
     "@emailjs/browser": "^3.7.0",
+    "@giscus/react": "^2.2.0",
     "classnames": "^2.3.2",
     "contentlayer": "^0.2.8",
     "framer-motion": "^7.3.2",

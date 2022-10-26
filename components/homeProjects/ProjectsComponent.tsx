@@ -78,9 +78,6 @@ const ProjectsComponent = () => {
           </div>
         )
       })}
-      <div>
-        <h2></h2>
-      </div>
 
       <div className={styles.github}>
         <span>More projects on</span>

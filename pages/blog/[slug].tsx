@@ -22,6 +22,8 @@ import { pick } from '@contentlayer/client'
 import { allPosts, Post as PostType } from 'contentlayer/generated'
 
 import styles from './post.module.scss'
+import { Comments } from 'components/GiscusComments'
+import Iframe from 'components/iframe'
 
 const CustomLink = (props: { href: string }) => {
   const { href } = props
@@ -51,6 +53,7 @@ const components = {
   Link: CustomLink,
   // NowPlayingIcon,
   SegmentedControl,
+  Iframe,
 }
 
 type PostProps = {
@@ -125,6 +128,7 @@ const Post = ({ post, related }: PostProps): JSX.Element => {
         <Component components={components} />
       </article>
 
+      <Comments />
       {related.length > 0 && (
         <>
           <h2 className={styles.relatedHeading}>Related Posts</h2>

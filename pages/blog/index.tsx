@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import { Search } from 'react-feather'

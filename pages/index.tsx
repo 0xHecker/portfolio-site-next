@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar'
 import styles from '../styles/mainheader.module.scss'
 import IconsComponent from 'components/IconsComponent'
 import BreakComponent from 'components/BreakComponent'
-import ProjectsComponent from 'components/projects/ProjectsComponent'
+import ProjectsComponent from 'components/homeProjects/ProjectsComponent'
 import MessageComponent from 'components/message/MessageComponent'
 import { Footer } from 'components/Footer'
 
