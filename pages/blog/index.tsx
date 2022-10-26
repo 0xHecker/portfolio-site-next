@@ -29,7 +29,7 @@ const Blog = ({ posts }: BlogProps): JSX.Element => {
   const filteredPosts = posts
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     .filter(({ title, summary, tags }) => {
-      const searchString = `${title.toLowerCase()} ${summary.toLowerCase()} ${tags?.join(' ')}`
+      const searchString: any = `${title.toLowerCase()} ${summary.toLowerCase()} ${tags?.join(' ')}`
       return searchString.includes(currentSearch.toLowerCase())
     })
 
