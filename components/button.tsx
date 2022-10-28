@@ -12,7 +12,7 @@ type ButtonProps = {
 }
 
 const Button = ({ children, type, href, variant, onClick, disabled }: ButtonProps): JSX.Element => {
-  const classes = cn(styles.button, styles[variant])
+  const classes = cn(styles.button, styles[variant as string])
   if (onClick || !href) {
     return (
       <button className={classes} type={type === 'submit' ? 'submit' : 'button'} onClick={onClick} disabled={disabled}>

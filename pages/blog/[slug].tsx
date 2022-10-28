@@ -23,7 +23,7 @@ import { allPosts, Post as PostType } from 'contentlayer/generated'
 
 import styles from './post.module.scss'
 import { Comments } from 'components/GiscusComments'
-import Iframe from 'components/iframe'
+import Iframe from 'components/codesandboxIframe'
 
 const CustomLink = (props: { href: string }) => {
   const { href } = props

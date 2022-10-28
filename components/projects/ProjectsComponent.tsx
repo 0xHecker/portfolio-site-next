@@ -1,24 +1,7 @@
-import React, { Suspense, useEffect, useRef } from 'react'
-
-import styles from '../../styles/projects/projects.module.scss'
+import styles from '../../styles/homeProjects/projects.module.scss'
 import { projects } from '../../utils/Projects'
 
 const ProjectsComponent = () => {
-  const videoRef = useRef(null)
-
-  const setPlayBack = () => {
-    // @ts-ignore
-    videoRef.current.playbackRate = 2.0
-    // @ts-ignore
-    videoRef.current.muted = true
-    // @ts-ignore
-    videoRef.current.play()
-  }
-
-  useEffect(() => {
-    setPlayBack()
-  })
-
   return (
     <section className={styles.projectsContainer}>
       <div className={styles.bg}></div>
@@ -37,7 +20,18 @@ const ProjectsComponent = () => {
             {/* after heading */}
             <div className={styles.contentContainer}>
               <div className={styles.videoContainer}>
-                <video className={styles.video} autoPlay loop ref={videoRef} onCanPlay={() => setPlayBack()}>
+                <video
+                  className={styles.video}
+                  autoPlay
+                  loop
+                  ref={async (node: HTMLVideoElement) => {
+                    if (node) {
+                      node.playbackRate = 3
+                      node.muted = true
+                      const pl = await node.play()
+                    }
+                  }}
+                >
                   <source src={project.videoSrc} />
                 </video>
               </div>
@@ -78,14 +72,11 @@ const ProjectsComponent = () => {
           </div>
         )
       })}
-      <div>
-        <h2></h2>
-      </div>
 
       <div className={styles.github}>
         <span>More projects on</span>
         <a target="_blank" href="https://github.com/0xHecker" rel="noopener noreferrer" className={styles.iconName}>
-          Github <strong>↗︎</strong>
+          Github <strong>↗</strong>
         </a>
       </div>
     </section>

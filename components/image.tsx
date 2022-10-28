@@ -12,7 +12,7 @@ type CustomImageProps = {
 const CustomImage = ({ src, width, height, alt, caption, layout = 'intrinsic' }: CustomImageProps): JSX.Element => (
   <figure className={styles.wrapper}>
     <div>
-      <Image src={src} width={width} height={height} alt={alt} layout={layout} />
+      <Image src={src} width={width} height={height} alt={alt} layout={layout} placeholder={'blur'} blurDataURL={src} />
       {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
     </div>
   </figure>
