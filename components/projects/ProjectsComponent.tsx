@@ -1,11 +1,30 @@
 import styles from '../../styles/homeProjects/projects.module.scss'
 import { projects } from '../../utils/Projects'
+import { createRef, useMemo, useState } from 'react'
 
 const ProjectsComponent = () => {
+  const playToggle = async (node: HTMLVideoElement) => {
+    if (node.paused) {
+      await node.play()
+      return
+    }
+    node.pause()
+  }
+
+  // const refsById = useMemo(() => {
+  //   const refs: any = {}
+  //   projects.forEach(project => {
+  //     refs[project.name] = createRef()
+  //   })
+  //   console.log('refs', refs)
+
+  //   return refs
+  // }, [])
+
   return (
     <section className={styles.projectsContainer}>
       <div className={styles.bg}></div>
-      <div className="">
+      <div>
         <h2 className={styles.heading}>Projects</h2>
       </div>
       {/* Each project */}
@@ -24,11 +43,20 @@ const ProjectsComponent = () => {
                   className={styles.video}
                   autoPlay
                   loop
+                  // ref={refsById[project.name]}
                   ref={async (node: HTMLVideoElement) => {
                     if (node) {
-                      node.playbackRate = 3
+                      node.playbackRate = 2
                       node.muted = true
-                      const pl = await node.play()
+                      node.pause()
+
+                      node.addEventListener('mouseover', e => {
+                        node.play()
+                      })
+
+                      node.addEventListener('click', e => {
+                        playToggle(node)
+                      })
                     }
                   }}
                 >
@@ -56,7 +84,7 @@ const ProjectsComponent = () => {
                 <div className={styles.links}>
                   <div className={styles.link}>
                     <a href={project.links[0] as string} rel="noreferrer" target={'_blank'}>
-                      Source Code&nbsp;
+                      Repository&nbsp;
                       <span style={{ fontWeight: 'bolder' }}>↗︎</span>
                     </a>
                   </div>

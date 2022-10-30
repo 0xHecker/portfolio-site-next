@@ -43,12 +43,25 @@
   text-align: center;
 }
 
+.tagContainer {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin-bottom: 0;
+
+  li {
+    margin-bottom: 0;
+  }
+}
+
 .postTags {
   padding: 3px 10px;
   margin-right: 0.7rem;
   font-size: 0.9em;
   border-radius: 1rem;
   color: var(--textTinted3);
+  max-width: fit-content;
 
   @media (max-width: 480px) {
     font-size: 0.8em;

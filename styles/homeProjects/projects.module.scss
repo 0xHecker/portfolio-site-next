@@ -86,12 +86,12 @@
   margin: auto;
   margin-top: 2rem;
   position: relative;
+  z-index: 1;
   video {
     border-radius: 1rem;
     max-width: 100%;
     // box-shadow: 18px 18px 18px rgba(0, 0, 0, 0.678);
   }
-  z-index: 1;
 
   @media (max-width: 480px) {
     max-width: 95%;

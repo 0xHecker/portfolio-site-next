@@ -1,6 +1,6 @@
 import { SocialIcons } from './../components/SocialIcons'
 import { MainHeader } from '../components/MainHeader'
-import React from 'react'
+import React, { useRef } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
@@ -16,6 +16,12 @@ import { NextSeo } from 'next-seo'
 const Home: NextPage = () => {
   const seoTitle = 'Home | Sai Shanmukh'
   const seoDesc = 'I am a fullstack js developer and has a keen eye on design'
+  const parentRef = useRef(null)
+
+  const scrollFunction = () => {
+    /*  @ts-ignore */
+    parentRef.current.scrollIntoView()
+  }
 
   return (
     <>
@@ -36,12 +42,12 @@ const Home: NextPage = () => {
       <main className={styles.header_container}>
         <NavBar />
         <MainHeader />
-        <SocialIcons />
+        <SocialIcons scrollFunction={scrollFunction} />
         <BreakComponent marginTop="4rem" />
         <IconsComponent />
         <ProjectsComponent />
         <BreakComponent marginTop="2rem" />
-        <MessageComponent />
+        <MessageComponent ref={parentRef} />
         <Footer />
       </main>
     </>

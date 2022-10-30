@@ -10,7 +10,7 @@ type BlogImageProps = {
 
 const BlogImage = ({ src, alt, className }: BlogImageProps): JSX.Element => (
   <span className={cn(styles.wrapper, className)}>
-    <Image src={src} alt={alt} width={2024} height={1012} layout="responsive" />
+    <Image src={src} alt={alt} width={2024} height={1012} layout="responsive" placeholder="blur" blurDataURL={src} />
   </span>
 )
 

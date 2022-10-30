@@ -8,6 +8,7 @@ import { formatDate } from 'lib/formatdate'
 import type { Post } from 'contentlayer/generated'
 
 import styles from './postlist.module.scss'
+import slugify from 'slugify'
 
 type PostListProps = {
   posts: Post[]
@@ -38,19 +39,21 @@ const PostList = ({ posts }: PostListProps): JSX.Element => {
               <Link as={`/blog/${slug}`} href="/blog/[slug]">
                 <a className={styles.title}>{title}</a>
               </Link>
-              {console.log(slug)}
               <p className={styles.summary}>{summary}</p>
               <p className={styles.meta}>
                 Published on <time dateTime={publishedAt}>{formatDate(publishedAt)}</time> &middot; {readTime.text}
               </p>
-              {post.tags?.map((tag: string, idx: number) => {
-                let clsName = 'tag' + idx.toString()
-                return (
-                  <a className={`${styles.postTags}  ${styles[clsName]}`} key={tag}>
-                    {tag}
-                  </a>
-                )
-              })}
+              <ul className={styles.tagContainer}>
+                {post.tags?.map((tag: string, idx: number) => {
+                  let clsName = 'tag' + idx.toString()
+
+                  return (
+                    <li key={tag} className={`${styles.postTags}  ${styles[clsName]}`}>
+                      <Link href={`/blog/tag/${slugify(tag, { lower: true })}`}>{`${tag}`}</Link>
+                    </li>
+                  )
+                })}
+              </ul>
             </>
           </li>
         )

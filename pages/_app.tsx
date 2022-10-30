@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast'
 
 import SEO from '../components/seo'
 import '../styles/globals.scss'
+import BackToTopButton from 'components/BackToTopButton'
 function App({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter()
 
@@ -25,7 +26,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
         }}
       />
       <Toaster position="top-right" reverseOrder={false} />
-
+      <BackToTopButton />
       <AnimatePresence initial={false}>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>

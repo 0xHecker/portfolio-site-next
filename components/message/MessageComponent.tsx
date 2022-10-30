@@ -1,12 +1,12 @@
 import { formReducer } from './../../utils/reducers'
-import React, { useReducer, useRef, useState } from 'react'
+import React, { forwardRef, useReducer, useRef, useState } from 'react'
 import styles from '../../styles/message/message.module.scss'
 import { MessageSquare, AtSign, User } from 'react-feather'
 import emailjs from '@emailjs/browser'
 import ReCAPTCHA from 'react-google-recaptcha'
 import toast from 'react-hot-toast'
 
-const MessageComponent = () => {
+const MessageComponent = (props: any, ref: any) => {
   const [{ name, email, message }, dispatch] = useReducer(formReducer, {
     name: '',
     email: '',
@@ -77,8 +77,17 @@ const MessageComponent = () => {
     return
   }
 
+  const messageRef = useRef(null)
+
+  React.useImperativeHandle(ref, () => {
+    return {
+      // @ts-ignore
+      scrollIntoView: () => messageRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' }),
+    }
+  })
+
   return (
-    <div className={styles.messageComponent}>
+    <div className={styles.messageComponent} ref={messageRef}>
       <div className={styles.messageContainer}>
         <div className={styles.headingContainer}>
           <h2 className={styles.messageHeading}>Get in touch</h2>
@@ -124,4 +133,4 @@ const MessageComponent = () => {
   )
 }
 
-export default MessageComponent
+export default forwardRef(MessageComponent)
