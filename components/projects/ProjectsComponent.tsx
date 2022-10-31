@@ -2,7 +2,7 @@ import styles from '../../styles/homeProjects/projects.module.scss'
 import { projects } from '../../utils/Projects'
 import { createRef, useMemo, useState } from 'react'
 
-const ProjectsComponent = () => {
+const Projects = () => {
   const playToggle = async (node: HTMLVideoElement) => {
     if (node.paused) {
       await node.play()
@@ -111,7 +111,7 @@ const ProjectsComponent = () => {
   )
 }
 
-export default ProjectsComponent
+export default Projects
 
 {
   /* 

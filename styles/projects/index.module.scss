@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 30px;
   margin-top: 2rem;
@@ -50,6 +50,18 @@
     font-size: 26px;
   }
 
+  ul {
+    margin-top: 1rem;
+    color: var(--textTinted);
+  }
+
+  li {
+    padding: 3px 0;
+    &::marker {
+      color: #d1d5db;
+    }
+  }
+
   @media (max-width: 480px) {
     border: 1px solid var(--heading);
   }
@@ -70,7 +82,9 @@
     margin-right: 0.1rem;
     // color: rgba(63, 60, 60, 0.801);
     margin-bottom: 0;
-    color: var(--textTinted);
+    word-spacing: 2px;
+    letter-spacing: 0.2px;
+    color: var(--textTinted2);
   }
 
   @media (max-width: 480px) {

@@ -36,10 +36,11 @@ const BackToTopButton = () => {
         <button
           style={{
             position: 'fixed',
-            bottom: '10%',
-            right: '10%',
+            bottom: '70px',
+            right: '200px',
             width: '50px',
             height: '50px',
+            zIndex: 10000,
           }}
           onClick={() => scrollUp()}
         >

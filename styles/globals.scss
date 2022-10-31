@@ -31,8 +31,8 @@
   --bgInverse: #161515;
   --text: #000;
   --textTinted: rgba(63, 60, 60, 0.801);
-  --textTinted2: rgba(63, 60, 60, 0.801);
-  --textTinted3: rgba(44, 42, 42, 0.877);
+  --textTinted2: rgba(63, 60, 60, 0.918);
+  --textTinted3: rgba(32, 31, 31, 0.877);
   --bgBoxHover: rgba(255, 211, 211, 0.658);
   --brand: rgb(251, 96, 96); // #fd6449;
   --brandActive: #b3613b;
@@ -63,7 +63,7 @@
   --bgInverse: #fff;
   --text: rgb(255, 255, 255);
   --textTinted: rgba(255, 255, 255, 0.699);
-  --textTinted2: rgb(255, 255, 255);
+  --textTinted2: rgba(255, 255, 255, 0.925);
   --textTinted3: rgba(255, 255, 255, 0.911);
   --headerBg: rgba(22, 21, 21, 0.6);
   --border: rgba(255, 255, 255, 0.08);
@@ -240,7 +240,7 @@ pre[class*='language-'] {
 .token.function,
 .token.builtin,
 .token.char {
-  color: rgb(130, 170, 255);
+  color: rgba(130, 170, 255, 0.918);
 }
 
 .token.selector,

@@ -113,6 +113,11 @@ export const imgPaths = {
     website: 'https://www.docker.com/',
   },
 
+  dockerLogo: {
+    path: '/icons/docker-icon.svg',
+    website: 'https://www.docker.com/',
+  },
+
   linux: {
     path: '/icons/linuxtux.svg',
     website: 'https://www.linux.org/',
