@@ -6,7 +6,6 @@ import { Search } from 'react-feather'
 // Components
 import { Page } from 'components/page'
 import PageHeader from 'components/pageheader'
-import Subscribe from 'components/subscribe'
 import Input from 'components/input'
 import PostList from 'components/postlist'
 
@@ -65,7 +64,6 @@ const Blog = ({ posts }: BlogProps): JSX.Element => {
       </PageHeader>
 
       <PostList posts={filteredPosts} />
-      <Subscribe title="Subscribe to the newsletter" />
     </Page>
   )
 }
