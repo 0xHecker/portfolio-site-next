@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import styles from '../../styles/projects/index.module.scss'
