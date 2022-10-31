@@ -17,3 +17,30 @@
     margin-bottom: 80px;
   }
 }
+
+.scrollToTop {
+  position: fixed;
+  display: flex;
+  bottom: 10%;
+  right: 10%;
+  color: var(--brand);
+  font-size: 25px;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  border: solid var(--textTinted) 2px;
+  border-radius: 10px;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: inline-block;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 40px;
+    height: 40px;
+    bottom: 8%;
+  }
+}

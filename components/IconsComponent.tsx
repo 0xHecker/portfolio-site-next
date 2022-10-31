@@ -11,6 +11,9 @@ const IconsComponent = () => {
       </div>
       <div className={styles.iconContainer}>
         {Object.entries(imgPaths).map(item => {
+          if (item[0] == 'dockerLogo') {
+            return
+          }
           return (
             <div className={styles.icons} key={item[0]}>
               <a rel="noopener noreferrer" target="_blank" href={`${item[1].website}`}>

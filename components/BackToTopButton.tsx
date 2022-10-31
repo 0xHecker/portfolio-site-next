@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { GoChevronUp } from 'react-icons/go'
+import styles from '../styles/page.module.scss'
 
 const BackToTopButton = () => {
   const [backToTop, setBackToTop] = useState(false)
@@ -33,19 +35,11 @@ const BackToTopButton = () => {
   return (
     <div>
       {backToTop && (
-        <button
-          style={{
-            position: 'fixed',
-            bottom: '70px',
-            right: '200px',
-            width: '50px',
-            height: '50px',
-            zIndex: 10000,
-          }}
-          onClick={() => scrollUp()}
-        >
-          ^
-        </button>
+        <div className={styles.scrollToTop} onClick={() => scrollUp()}>
+          <span>
+            <GoChevronUp />
+          </span>
+        </div>
       )}
     </div>
   )

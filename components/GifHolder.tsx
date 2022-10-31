@@ -13,7 +13,7 @@ const GifHolder = () => {
         }}
         style={{ width: 'max-content', margin: 'auto' }}
       >
-        <Image src={randImg} alt="Moving Image" width={300} height={300} placeholder={'blur'} blurDataURL={randImg} />
+        <Image src={randImg} alt="Moving Image" width={300} height={300} />
       </div>
     </>
   )

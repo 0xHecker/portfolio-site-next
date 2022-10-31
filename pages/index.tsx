@@ -2,7 +2,6 @@ import { SocialIcons } from './../components/SocialIcons'
 import { MainHeader } from '../components/MainHeader'
 import React, { useRef } from 'react'
 import type { NextPage } from 'next'
-import Head from 'next/head'
 
 import NavBar from '../components/NavBar'
 import styles from '../styles/mainheader.module.scss'
