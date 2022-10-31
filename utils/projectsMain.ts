@@ -1,5 +1,4 @@
 import { imgPaths } from 'utils/imgPaths'
-import Projects from '../../components/projects/ProjectsComponent'
 
 export interface ProjectType {
   name: string

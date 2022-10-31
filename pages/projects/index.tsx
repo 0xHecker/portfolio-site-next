@@ -5,7 +5,7 @@ import styles from '../../styles/projects/index.module.scss'
 // Components
 import { Page } from 'components/page'
 import PageHeader from 'components/pageheader'
-import { projects, ProjectType } from './projects'
+import { projects, ProjectType } from '../../utils/projectsMain'
 
 const Projects = ({ projects }: { projects: ProjectType[] }): JSX.Element => {
   const seoTitle = 'Projects | Sai Shanmukh'
