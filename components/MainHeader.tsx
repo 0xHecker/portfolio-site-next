@@ -19,7 +19,7 @@ export function MainHeader() {
   return (
     <header className={styles.header}>
       <div className={styles.header__content}>
-        <img id="bg1" src="/blob_bg.png" alt="background" />
+        <img id="bg1" src="/blob_bg.webp" alt="background" />
         <h1>
           <span
             style={{

@@ -12,7 +12,7 @@ const footerLinks = [
     { name: 'Home', url: '/' },
     { name: 'Blog', url: '/blog' },
     { name: 'Projects', url: '/projects' },
-    { name: 'RSS', url: '/rss' },
+    { name: 'RSS', url: '/feed.xml' },
   ],
   [
     { name: 'Mail', url: 'mailto:msshanmukh@gmail.com' },
