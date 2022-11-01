@@ -14,6 +14,9 @@ export default class MyDocument extends Document {
           <link rel="preload" as="image" href="/chicken/02.gif" />
           <link rel="preload" as="image" href="/chicken/03.gif" />
           <link rel="preload" as="image" href="/chicken/04.gif" />
+          {process.env.NODE_ENV === 'production' && (
+            <script async defer data-website-id="cae51d94-6683-4a9b-98dd-1a42e56fbf9f" src="https://umami-dup.vercel.app/umami.js"></script>
+          )}
         </Head>
         <body>
           <Main />
