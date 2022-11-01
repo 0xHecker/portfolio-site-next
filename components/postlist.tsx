@@ -15,8 +15,6 @@ type PostListProps = {
 }
 
 const PostList = ({ posts }: PostListProps): JSX.Element => {
-  console.log(posts)
-
   return (
     <ul className={styles.list}>
       {posts.length === 0 && <p className={styles.noResults}>🧐 No posts found</p>}

@@ -23,7 +23,6 @@ const MessageComponent = (props: any, ref: any) => {
 
   const submitHandler = async (e: any) => {
     e.preventDefault()
-    console.log(name, email, message)
     // @ts-ignore
     // const token = await refCaptcha.current.executeAsync()
     const token = refCaptcha.current.getValue()
@@ -58,7 +57,6 @@ const MessageComponent = (props: any, ref: any) => {
       )
       .then(
         () => {
-          console.log('mail sent')
           toast.success('Message Sent Successfully', {
             id: 'message',
             duration: 3000,
@@ -68,7 +66,6 @@ const MessageComponent = (props: any, ref: any) => {
           resetForm()
         },
         err => {
-          console.error(err)
           toast.error('Something went wrong', {
             duration: 3000,
           })
