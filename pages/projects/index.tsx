@@ -67,12 +67,14 @@ const Projects = ({ projects }: { projects: ProjectType[] }): JSX.Element => {
                           <span style={{ fontWeight: 'bolder' }}>↗︎</span>
                         </a>
                       </div>
-                      <div className={styles.link}>
-                        <a href={project.links[1] as string} rel="noreferrer" target={'_blank'}>
-                          Live&nbsp;
-                          <span style={{ fontWeight: 'bolder' }}>↗︎</span>
-                        </a>
-                      </div>
+                      {project?.links[1] && (
+                        <div className={styles.link}>
+                          <a href={project.links[1] as string} rel="noreferrer" target={'_blank'}>
+                            Live&nbsp;
+                            <span style={{ fontWeight: 'bolder' }}>↗︎</span>
+                          </a>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
