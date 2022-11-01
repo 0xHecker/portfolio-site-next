@@ -5,6 +5,8 @@ import { MessageSquare, AtSign, User } from 'react-feather'
 import emailjs from '@emailjs/browser'
 import ReCAPTCHA from 'react-google-recaptcha'
 import toast from 'react-hot-toast'
+import { useConfetti } from 'lib/useConfetti'
+import ConfettiCanvas from '../ConfettiCanvas'
 
 const MessageComponent = (props: any, ref: any) => {
   const [{ name, email, message }, dispatch] = useReducer(formReducer, {
@@ -20,6 +22,10 @@ const MessageComponent = (props: any, ref: any) => {
   const setFormEmail = (e: React.ChangeEvent<HTMLInputElement>) => dispatch({ type: 'email', value: e.target.value })
   const setFormMessage = (e: React.ChangeEvent<HTMLTextAreaElement>) => dispatch({ type: 'message', value: e.target.value })
   const resetForm = () => dispatch({ type: 'reset', value: '' })
+
+  const { getInstance, fire } = useConfetti()
+
+  const [isSuccess, setIsSuccess] = useState(false)
 
   const submitHandler = async (e: any) => {
     e.preventDefault()
@@ -48,6 +54,11 @@ const MessageComponent = (props: any, ref: any) => {
       'g-recaptcha-response': token,
     }
 
+    if (!token) {
+      toast.error('reCaptcha failed')
+      return
+    }
+
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
@@ -63,6 +74,8 @@ const MessageComponent = (props: any, ref: any) => {
           })
           // @ts-ignore
           refCaptcha.current.reset()
+          setIsSuccess(true)
+          fire()
           resetForm()
         },
         err => {
@@ -117,12 +130,18 @@ const MessageComponent = (props: any, ref: any) => {
             <div className={styles.reInputWrapper}>
               <ReCAPTCHA ref={refCaptcha} theme="light" sitekey={process.env.NEXT_PUBLIC_SITE_KEY as string} />
             </div>
+            <ConfettiCanvas getInstance={getInstance} />
 
             <div className={styles.headingContainer}>
               <a onClick={e => submitHandler(e)} className={styles.sendMessage}>
                 Send Message
               </a>
             </div>
+            {isSuccess && (
+              <div className={styles.confettiText} onClick={() => fire()}>
+                🎉 Give more confetti !
+              </div>
+            )}
           </form>
         </div>
       </div>

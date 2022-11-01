@@ -12,15 +12,13 @@ const footerLinks = [
     { name: 'Home', url: '/' },
     { name: 'Blog', url: '/blog' },
     { name: 'Projects', url: '/projects' },
-    { name: 'Newsletter', url: '/newsletter' },
     { name: 'RSS', url: '/rss' },
   ],
   [
-    { name: 'Twitter', url: 'https://twitter.com/msshanmukh' },
-    { name: 'GitHub', url: 'https://github.com/0xHecker' },
-    { name: 'LinkedIn', url: 'https://linkedin.in/saishanmukh.m' },
-    { name: 'Discord', url: 'https://www.instagram.com/shanmukh.eth' },
     { name: 'Mail', url: 'mailto:msshanmukh@gmail.com' },
+    { name: 'GitHub', url: 'https://github.com/0xHecker' },
+    { name: 'Twitter', url: 'https://twitter.com/msshanmukh' },
+    { name: 'LinkedIn', url: 'https://linkedin.in/saishanmukhm' },
   ],
 ]
 

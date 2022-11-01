@@ -7,6 +7,14 @@ const nextConfig = withContentlayer({
   images: {
     domains: ['res.cloudinary.com', 'user-images.githubusercontent.com'],
   },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require('./scripts/generate-sitemap') // eslint-disable-line
+      require('./scripts/generate-rss') // eslint-disable-line
+    }
+
+    return config
+  },
 })
 
 module.exports = nextConfig

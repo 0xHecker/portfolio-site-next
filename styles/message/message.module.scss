@@ -75,3 +75,17 @@
 .sendMessage {
   @include bwButton;
 }
+
+.confettiText {
+  max-width: fit-content;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 2px;
+  color: var(--textTinted);
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

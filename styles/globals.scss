@@ -105,6 +105,28 @@ body {
   transition: background 0.5s;
 }
 
+*::selection {
+  background: #1292fa36; /* WebKit/Blink Browsers */
+}
+*::-moz-selection {
+  background: #1292fa36; /* Gecko Browsers */
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+}
+
+/* Works on Chrome, Edge, and Safari */
+body::-webkit-scrollbar {
+  width: 9px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(250, 47, 47, 0.61); // #ff3300c0;
+  border-radius: 20px;
+}
+
 h1 {
   margin-bottom: 30px;
   font-size: 32px;
