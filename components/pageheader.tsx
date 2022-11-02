@@ -10,7 +10,7 @@ type PageHeaderProps = {
 const PageHeader = ({ title, description, children, compact }: PageHeaderProps): JSX.Element => (
   <div className={compact ? styles.wrapperCompact : styles.wrapper}>
     <h1 className={styles.title}>{title}</h1>
-    {/* {description && <p className={styles.description}>{description}</p>} */}
+    {description && <p className={styles.description}>{description}</p>}
     {children}
   </div>
 )

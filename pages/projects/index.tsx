@@ -9,7 +9,7 @@ import { projects, ProjectType } from '../../utils/projectsMain'
 
 const Projects = ({ projects }: { projects: ProjectType[] }): JSX.Element => {
   const seoTitle = 'Projects | Sai Shanmukh'
-  const seoDesc = 'I am a fullstack js developer and has a keen eye on design'
+  const seoDesc = 'Here are some of the projects I have worked on'
 
   return (
     <Page>

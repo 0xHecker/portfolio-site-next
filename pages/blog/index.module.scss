@@ -1,31 +1,32 @@
 .input {
-	width: 250px;
-	max-width: 100%;
-	padding-left: 35px;
-	transition: all 150ms ease-out;
-	&:hover,
-	&:active,
-	&:focus {
-		border-color: var(--brand);
-		outline: none;
-		box-shadow: 0 0 0 4px var(--brandTinted);
-	}
+  width: 250px;
+  max-width: 100%;
+  padding-left: 35px;
+  transition: all 150ms ease-out;
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: var(--brand);
+    outline: none;
+    box-shadow: 0 0 0 4px var(--brandTinted);
+  }
 }
 
 .inputWrapper {
-	position: relative;
+  position: relative;
+  margin-bottom: 1rem;
 }
 
 .inputIcon {
-	position: absolute;
-	top: 50%;
-	left: 10px;
-	width: 18px;
-	transform: translateY(calc(-50% - 1px));
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  width: 18px;
+  transform: translateY(calc(-50% - 1px));
 
-	circle,
-	line {
-		opacity: 0.6;
-		stroke: var(--text);
-	}
+  circle,
+  line {
+    opacity: 0.6;
+    stroke: var(--text);
+  }
 }

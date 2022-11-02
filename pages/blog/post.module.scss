@@ -135,9 +135,14 @@
   }
 
   a {
-    color: var(--brand);
-    &::before {
-      content: '🔗';
+    color: rgb(255, 94, 0);
+    text-decoration: underline;
+    &::after {
+      content: '↗';
+    }
+
+    &:hover {
+      opacity: 0.8;
     }
   }
 

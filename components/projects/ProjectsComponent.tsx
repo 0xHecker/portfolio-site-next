@@ -1,6 +1,5 @@
 import styles from '../../styles/homeProjects/projects.module.scss'
 import { projects } from '../../utils/Projects'
-import { createRef, useMemo, useState } from 'react'
 
 const Projects = () => {
   const playToggle = async (node: HTMLVideoElement) => {

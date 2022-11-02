@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
           <link rel="preload" href="/fonts/outfit-v4-latin-500.woff2" as="font" type="font/woff" crossOrigin="" />
           <link rel="preload" href="/fonts/outfit-v4-latin-700.woff2" as="font" type="font/woff" crossOrigin="" />
           <link rel="preload" href="/fonts/outfit-v4-latin-regular.woff2" as="font" type="font/woff" crossOrigin="" />
-          <link rel="preload" as="image" href="/blob_bg.png" />
+          <link rel="preload" as="image" href="/blob_bg.webp" />
           <link rel="preload" as="image" href="/chicken/01.webp" />
           {process.env.NODE_ENV === 'production' && (
             <script async defer data-website-id="fc557f84-dc3e-459f-af7c-c1a7ea34fc8a" src="https://umami-dup.vercel.app/umami.js"></script>

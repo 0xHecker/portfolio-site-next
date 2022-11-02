@@ -19,6 +19,14 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".contentlayer/generated", "scripts/generate-sitemap.js", "scripts/generate-rss.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".contentlayer/generated",
+    "scripts/generate-sitemap.js",
+    "scripts/generate-rss.js",
+    "pages/api/og.js"
+  ],
   "exclude": ["node_modules"]
 }

@@ -5,7 +5,7 @@ interface Props {
   title: string
 }
 
-const Iframe = ({ src, title = 'codesandbox' }: Props) => {
+const CodesandboxIframe = ({ src, title = 'codesandbox' }: Props) => {
   return (
     <iframe
       src={src}
@@ -17,4 +17,4 @@ const Iframe = ({ src, title = 'codesandbox' }: Props) => {
   )
 }
 
-export default Iframe
+export default CodesandboxIframe

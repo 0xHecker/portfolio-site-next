@@ -16,7 +16,6 @@ tags: ["React", "React-hooks"]
 ```javascript
 function  useState<T>(initialState: T | (() =>  T)): [T, Dispatch<SetStateAction<T>>];
 ```
-<Iframe src={"https://codesandbox.io/embed/busy-kapitsa-c7pkfm?fontsize=14&hidenavigation=1&theme=dark"} title={"Codesandbox"} />
 
 - `useState` hook is an abstraction of `useDispatch` hook of basic level.
 - You can think of `[state, setState]` as `[state, dispatch]` that we get from [`useReducer`](https://reactjs.org/docs/hooks-reference.html#usereducer) where we modify the state using `dispatch` function, so `setState` is a simplified `dispatch` function.
@@ -39,8 +38,7 @@ Which means the return value of callback function going to set the state only on
 	});
 // This is called as lazy initialization of state
 ```
-
-**Tips:**
+### Tips:
 
 - Always remember to return the value of type you want to set the state for in the callback function, doing not so can lead to [uncontrolled components](https://codesandbox.io/s/dazzling-jones-b6w4q5?file=/src/ControlledUncontrolled.jsx) sometimes.
 - Lazy initialization of state is analogous to passing initial state through `useDispatch(reducerFn, initialValue)`
@@ -133,13 +131,10 @@ myState(10);
 // output: 20
 ```
 
-Here is a [ codesandbox](https://codesandbox.io/s/busy-kapitsa-c7pkfm?file=/src/App.js:365-395) you can play with.
-\
-&nbsp;
+
 
 <Warning type={'info'}>Although it is possible to store functions with useState hook don't abuse it, consider using useCallback hook for storing functions.</Warning>
 
-> Although it is possible to store functions with useState hook don't abuse it, consider using useCallback hook for storing functions.
 
 \
 &nbsp;
