@@ -11,6 +11,9 @@ export default class MyDocument extends Document {
           <link rel="preload" href="/fonts/outfit-v4-latin-regular.woff2" as="font" type="font/woff" crossOrigin="" />
           <link rel="preload" as="image" href="/blob_bg.webp" />
           <link rel="preload" as="image" href="/chicken/01.webp" />
+          <link rel="preload" as="image" href="/chicken/02.webp" />
+          <meta property="og:image" content="https://shanmukh.xyz/api/og" />
+
           {process.env.NODE_ENV === 'production' && (
             <script async defer data-website-id="fc557f84-dc3e-459f-af7c-c1a7ea34fc8a" src="https://umami-dup.vercel.app/umami.js"></script>
           )}

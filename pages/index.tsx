@@ -2,7 +2,7 @@ import { SocialIcons } from './../components/SocialIcons'
 import { MainHeader } from '../components/MainHeader'
 import React, { useRef } from 'react'
 import type { NextPage } from 'next'
-import useSWR from 'swr'
+// import useSWR from 'swr'
 
 import NavBar from '../components/NavBar'
 import styles from '../styles/mainheader.module.scss'
@@ -23,9 +23,9 @@ const Home: NextPage = () => {
     parentRef.current.scrollIntoView()
   }
 
-  const fetcher = (url: RequestInfo | URL) => fetch(url).then(r => r.json())
-  const { data } = useSWR('/api/spotify', fetcher)
-  console.log(data)
+  // const fetcher = (url: RequestInfo | URL) => fetch(url).then(r => r.json())
+  // const { data } = useSWR('/api/spotify', fetcher)
+  // console.log(data)
 
   return (
     <>
@@ -38,6 +38,8 @@ const Home: NextPage = () => {
           description: seoDesc,
           site_name: 'Home | Sai Shanmukh',
           images: [{ url: 'http://localhost:3000/api/og', width: 800, height: 400, alt: 'Sai Shanmukh | Full Stack Developer' }],
+          type: 'website',
+          locale: 'en_IN',
         }}
         twitter={{
           handle: '@msshanmukh',
