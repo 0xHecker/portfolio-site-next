@@ -29,6 +29,7 @@ function  Counter({initialCount: 0}) {
 }
 ```
 
+
 Here we just made a counter which we can increment on a button click.
 
 - We will get `[state, dispatch]` array from `useReducer`
@@ -98,6 +99,8 @@ now, I'm sure you got a good understanding of how useReducer works. Let's see so
 
 Let's add an input field to our previous example..
 
+ps: the following code has a bug! Can you spot where it is?
+
 ```jsx showLineNumbers
 import "./styles.css";
 import React from "react";
@@ -156,9 +159,9 @@ export default function Counter({ initialCount = 0, step = 1 }) {
 }
 ```
 
-here we ahve added `username` to our state. now we can manage our state seamlessly
+here we have added `username` to our state. now we can manage our state seamlessly
 but hang on.. we have a bug in the above code.
-I did it intentionally to reach it in your core memory XD because it is a very common mistake people do.
+I did it intentionally to reach it in your core memory because it is a very common mistake people do.
 the bug here is, whenever you change a state, for example take `increment` case
 
 ```jsx showLineNumbers

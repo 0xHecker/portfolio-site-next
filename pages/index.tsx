@@ -15,7 +15,7 @@ import { NextSeo } from 'next-seo'
 
 const Home: NextPage = () => {
   const seoTitle = 'Home | Sai Shanmukh'
-  const seoDesc = 'I am a fullstack js developer and has a keen eye on design'
+  const seoDesc = 'I am a fullstack js developer and tech enthusiasist'
   const parentRef = useRef(null)
 
   const scrollFunction = () => {

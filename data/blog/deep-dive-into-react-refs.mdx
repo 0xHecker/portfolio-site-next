@@ -1,0 +1,638 @@
+---
+title: "Deep dive into react refs and callback refs"
+publishedAt: "2022-10-29"
+updatedAt: "2022-11-2"
+summary: "Deep dive into react refs and callback refs"
+tags: ["React", "React-hooks", "Advancedhooks"]
+
+---
+
+
+
+**There are many things you can do with React Refs. Refs in React are a powerful tool but they can be tricky and can be misused easily which can lead to lots of bugs and unexpected behaviours. we will go through most of the ways we can utilize the Refs for good**
+
+You can read more about `useRef` hook in [react docs](https://reactjs.org/docs/hooks-reference.html#useref). 
+
+Refs are simply references to something. like a **DOM element** or a **javascript value**. We use `useRef` hook to access a ref.
+```tsx
+function  useRef<T>(initialValue: T): MutableRefObject<T>;
+```
+ `useRef` takes an initial value and returns a mutable ref object which has `current` value.
+This returned object will persist throught the lifecycle of the component and through all of its re-renders until it unmounts.
+
+```tsx
+const ref = useRef(1);
+console.log(ref);
+// ref => {current: 1}
+
+// we can mutate the current value
+ref.current = 5;
+console.log(ref);
+// ref => {current: 5}
+```
+
+Some of the common usecases of refs
+- Creating mutable instance-like variables for functional components which would not trigger re-render on updates.
+-  Accessing DOM nodes or React elements created in the render method.
+
+
+
+Note: 
+- Changing the value of a ref doesn't trigger a re-render.
+-  It is useless to add a ref in the dependency array of useEffect or the other hooks since they would not update the React State.
+
+<details>
+
+<summary>Some demo examples</summary>
+  
+  1.  **Changing the value of a ref doesn't trigger a re-render.**
+  
+  ```tsx
+  import { useRef } from "react";
+
+export default function App() {
+  // create a ref
+  const counter = useRef(0);
+
+  // increase the counter by one
+  const handleIncrease = () => {
+    counter.current = counter.current + 1;
+  };
+
+  return (
+    <div>
+      <h2>Value: {counter.current}</h2>
+      <button onClick={handleIncrease}>
+        Increase count
+      </button>
+    </div>
+  );
+}
+  ```
+
+[Try the demo by yourself](https://codesandbox.io/s/voyage-sea-i58vom-i58vom?file=/src/App.js)
+
+  here  clicking the increase count button does not update the value in the DOM since there are no re-renders.
+- For the DOM to update, the corresponding component has to re-render to get the UI in sync with the updated React state.
+[here is an article I found useful on this topic](https://www.joshwcomeau.com/react/why-react-re-renders/)
+  
+  using useState hook would be appropriate here in this scenario because it changes the state triggering a re-render
+
+2. **It is useless to add a ref in the dependency array of useEffect or the other hooks**
+
+```tsx
+  import { useRef, useEffect } from "react";
+
+export default function App() {
+  // create a ref
+  const counter = useRef(0);
+
+  useEffect(()=> {
+	console.log(`count changed to: `, counter.current)	
+  }, [counter])
+
+  // increase the counter by one
+  const handleIncrease = () => {
+    counter.current = counter.current + 1;
+  };
+
+  return (
+    <div>
+      <h2>Value: {counter.current}</h2>
+      <button onClick={handleIncrease}>
+        Increase count
+      </button>
+    </div>
+  );
+}
+```
+[Try the demo by yourself](https://codesandbox.io/s/adoring-mayer-8vib0k?file=/src/App.js)
+
+Intended thing here is to log the value of count everytime the count value updates. but nothing will happen here since the state won't update and we don't get any logging in the console. see the demo codesandbox for the live demo.
+  
+</details>
+
+## Accessing DOM elements with ref
+
+```tsx
+import {useRef,useEffect } from 'react';
+
+function AccessingElement() {
+const elementRef = useRef();
+
+useEffect(() => {
+	const DomElement = elementRef.current;
+	console.log(DomElement); 
+	{/*
+		// logs the referenced element
+		<div>
+			<h2>Hello, This is an element!</h2>
+		</div>
+	*/}
+}, []);
+
+return (
+	<div ref={elementRef}>
+		<h2>Hello, This is an element!</h2>
+	</div>
+)}
+```
+
+this way we can access all the JS DOM properties of the referenced element with the ref
+
+<br />
+
+
+### Example: focusing input with an Effect
+
+How would you focus on the input field when the component mounts.
+A more good example would be animating the DOM element or start playing a video the first time you opened the site. for simplicity we'll go with focusing the inputs
+
+**Case 1**
+```tsx
+// I am using typescript here for better understanding 
+
+import { useRef, useEffect } from 'react';
+
+function InputFocus() {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  },[])
+
+  return (
+    <input 
+      ref={inputRef} 
+      type="text" 
+    />
+  );
+}
+```
+
+You can just use "Effects" to achive this and it just works and you won't encounter any problems,
+leaving the dependency array empty is fine since refs are sneaky and won't notify updates. 
+
+The effect will run once "on mount" [twice in strict mode](https://reactjs.org/docs/strict-mode.html#ensuring-reusable-state). By that time, React has already populated the ref with the DOM node, so we can focus it.
+
+## Passing refs from ChildComponent to the ParentComponent
+
+We cannot pass `Refs` directly from parent to child or vice-versa in Functional components unlike in Class Components.
+
+there is a way to access a Ref of child Component in parent Component using `forwardRef`
+
+### Child Component
+import {forwardRef} from "react";
+
+```tsx
+const InputComp = forwardRef<HTMLInputElement>((props, ref) => {
+  return <input ref={ref} type="input" />;
+});
+
+```
+
+### Parent Component
+
+```tsx
+import {useEffect, useRef} from "react";
+
+export default function App() {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+  return <InputComp ref={inputRef} />;
+}
+
+```
+
+When we wrap a component with `forwardRef` it's parent component can access it's refs
+
+usually `forwardRef` accepts `props` and `ref` as arguments
+
+- we update the ref passed by parent component in child component
+- now we have a reference to the child component ref in parent and we can utilize or manipulate it.
+- In our example we are focusing the `input` element of child component in the parent component using effects
+
+[Try the live demo by yourself](https://codesandbox.io/s/forwardref-typescript-5d6mhl?file=/src/App.tsx)
+
+
+##  Using refs in conditional rendering and loops
+
+In the above example everything works fine but there are some advanced scenarios the above code won't work and, in some cases the Refs can get tricky to use
+
+Remember, in the above case what we were **assuming**
+>By that time the component mounts, React has already populated the ref with the DOM node, so we can focus it.
+
+<Image src="https://user-images.githubusercontent.com/91829843/199696352-88f8b383-41bf-48b9-8e8f-b80c2221e655.png" width="850px" height="650px" alt="React hooks lifecycle" caption="React hooks lifecycle" />
+[Source](https://wavez.github.io/react-hooks-lifecycle/)
+
+**If you see the lifecycle of hooks, `refs` are updated before we run the `useEffect()`**
+
+we are assuming we already have the DOM node referenced by our ref and can access it by the time component mounts.
+this is especially not good if we have some custom component where we are getting our ref from and decided to show the input after some other user interaction 
+the content of the ref will still be null when the effect runs and nothing will be focussed
+
+Example of this shown in case 2
+
+**Case 2**
+
+```tsx
+import { useRef, useEffect, useState, forwardRef } from "react";
+
+export default function App() {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    {/* inputRef.current is null when it first runs */}
+    inputRef.current?.focus();
+  }, []);
+
+  return (
+    <FormComponent ref={inputRef} />
+  );
+}
+
+const FormComponent = forwardRef<HTMLInputElement>((props, ref) => {
+  const [show, setShow] = useState(false);
+
+  return (
+    <form>
+      <button type="button" onClick={() => setShow(true)}>
+        show
+      </button>
+      {/*  ref is attached to the input, but it's conditionally rendered
+       so it won't be filled when the above effect runs */}
+      {show && <input ref={ref} />}
+    </form>
+  );
+});
+
+```
+**In this example this is what happens:**
+
+- `FormComponent` renders 
+- `input` element is not rendered as `show` is false and `ref` is still `null`
+- User clicks the show button
+- Effect runs, nothing happens as `inputRef` is still null
+- `input` renders and it gets referenced by `ref` now. but, will not get focused because effect won't run again.
+
+We want to focus the `input` element "right after it renders" but not on the "form component mount".
+
+For the `input` gets to focused effect has to run again which it won't
+
+How can we achive this?
+
+this is when our lord and saviour "callback refs" comes to rescue.
+
+## Callback refs
+
+if you look at the `ref` signature 
+
+```tsx
+type Ref<T> = RefCallback<T> | RefObject<T> | null
+```
+
+ref can be a callback ref or the classic ref object with `.current` in it
+
+```tsx
+    interface RefObject<T> {
+        readonly current: T | null;
+    }
+```
+
+callback refs give more control over how we access and update or do stuff with DOM nodes
+
+here is how you can use callback refs
+```tsx
+const FormWithCallbackRef = () => {
+  const [show, setShow] = useState(false);
+
+  return (
+    <form>
+      <button type="button" onClick={() => setShow(true)}>
+        show
+      </button>
+      
+      {show && (
+        <input
+          ref={(node: HTMLInputElement) => {
+            // you can see the type of node is: `HTMLInputElement` (advantages of using typescript 😉)
+            // we get reference to the DOM element inline 
+            // and can access it's properties like shown below
+            node?.focus();
+          }}
+        />
+      )}
+    </form>
+  );
+};
+```
+[Try it the live demo by yourself](https://codesandbox.io/s/refs-1-5xseqg?file=/src/App.tsx)
+
+we got the solution for update the element "right after it renders" not depending on the mercy of effects and re-renders
+
+<details>
+  <summary>Same thing with more examples</summary>
+
+  ```jsx showLineNumbers
+  import { useRef, useEffect } from 'react';
+
+  function InputFocus() {
+    const inputRef = useRef(null);
+
+    const FocusElement = () => {
+      inputRef.current?.focus();
+      console.log("Focused");
+    };
+
+    return (
+      <input 
+        ref={inputRef} 
+        type="text" 
+      />
+      <button onClick={FocusElement}>Focus</button>
+    );
+  }
+```
+
+**Here is what happens :** 
+- Initially the `inputRef.current` is `null`
+- On the first render value of the ref will be set
+- On the button click `FocusElement()` function will be called
+- since we have already referenced the dom element `inputRef.current` value is our `input` DOM node.
+- `inputRef.current?.focus()` will be called resulting in focus
+
+</details>
+ 
+
+## Using refs in loops
+
+How would you, right now, access multiple DOM elements "with refs" rendered within a loop (let's say `array.map((t) => (<div key={t}></div>)`)
+
+If you say: "With `useRef`" you are wrong again.
+
+Let's say I have three videos and I want to get them all playing "on mount"
+This might be the approach you'd go with:
+
+**Case 3.1**
+
+```tsx
+
+const srcArray: string[] = [videoSrc1, videoSrc2, videoSrc3];
+
+const AccessAndPlayAllVideosInLoop = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    ref.current?.mute();
+    ref.current?.play();
+  });
+
+  return (
+    <form>
+      {srcArray.map((src: string) => {
+        return (
+          <div key={src}>
+            <video ref={videoRef} src={src} />
+          </div>
+        );
+      })}
+    </form>
+  );
+};
+
+// Neither you can do this
+
+const AccessAndPlayAllVideosInLoop = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    ref.current?.mute();
+    ref.current?.play();
+  });
+
+  return (
+    <form>
+      {srcArray.map((src: string) => {
+        return (
+          <div key={src}>
+            <video 
+              // ❌ ESLint:
+              // React Hook "useRef" cannot be called inside a
+              // callback.  React Hooks must be called in a
+              // React function component or a custom React
+              // Hook function. (react-hooks/rules-of-hooks)
+                const ref = useRef()
+            src={src} />
+          </div>
+        );
+      })}
+    </form>
+  );
+};
+```
+**Here is what happens**
+- we map through all the video sources to render video elements
+- try to access the DOM node of each video with ref
+- ref value gets overridden by the next video element ref you render in the loop before you can play it
+- we'll end up referencing only the last video element we render 
+- only the last video starts playing
+
+**a.** How can we access the rest of the video DOMs and play all of the videos?
+
+**b.** How can we give each of the video DOMs different DOM properties?
+
+for 'a' you should know the answer by now, `Callback Refs`
+
+
+this would be the proper way to do it
+
+**Case 3.2**
+```tsx
+const srcArray: string[] = [videoSrc1, videoSrc2, videoSrc3];
+
+const AccessAndPlayAllVideosInLoop = ({srcArray}) => {
+
+  return (
+    <form>
+      {srcArray.map((src: string) => {
+        return (
+          <div key={src}>
+            <video ref={(node: HTMLVideoElement) => { 
+              node?.mute(); 
+              node?.play() 
+            }} src={src} />
+          </div>
+        );
+      })}
+    </form>
+  );
+};
+
+// or you can do this way
+
+const AccessAndPlayAllVideosInLoop = ({srcArray}) => {
+
+  function playAll(node: HTMLVideoElement){
+    node?.mute(); 
+    node?.play() 
+  }
+
+  return (
+    <form>
+      {srcArray.map((src: string) => {
+        return (
+          <div key={src}>
+            <video ref={(node: HTMLVideoElement) => { 
+              playAll()
+            }} src={src} />
+          </div>
+        );
+      })}
+    </form>
+  );
+}
+```
+
+This is the problem I have personally encountered when making this site. If you see on the home page I have three videos, I rendered them within a loop. 
+to control them individually, I have used `Callback Refs`
+
+### There is another solution for this
+
+Another way to solve this is to create all the refs up-front and simply reference them in the loop:
+
+**Case 3.3**
+```tsx
+import {createRef, useMemo, useEffect}
+
+const srcArray = [
+  {
+    src: videoSrc1,
+    id: id1
+  },
+  {
+    src: videoSrc2,
+    id: id2
+  }, 
+  {
+    src: videoSrc2,
+    id: id2
+  }
+];
+
+const AccessAndPlayAllVideosInLoop = ({srcArray}) => {
+
+  const refsById = useMemo(() => {
+    const refs = {}
+
+    srcArray.forEach((item) => {
+        refs[item.id] = createRef<HTMLVideoElement>(null)
+    })
+    return refs
+  }, [srcArray])
+
+  useEffect(() => {
+    refsById.map((video) => {
+      video.current?.mute()
+      video.current?.play()
+    })
+  },[])
+
+  return (
+    <form>
+      {srcArray.map((item) => {
+        return (
+          <div key={item.id}>
+            <video ref={refsById[item.id]} src={item.src} />
+          </div>
+        );
+      })}
+    </form>
+  );
+}
+```
+
+**Here is what we did here**
+- We have changed the structure of our source array as per our requirement that is to give them `IDs`
+- populated the `refsById` object with "refs array" with `createRef()` and filled the refs with `null` before-hand and memorised them so we won't re update the array unless `{srcArray}` changed
+- now we referenced each of the video DOM node with `refsById[item.id]` which is an array filled with ref objects we would get with `useRef` hook
+- now effects start running 
+- we access the refs array on mount(ie., in useEffect) which has individual DOM nodes and manipulate the DOM as we need.
+
+Pros of this approach than the Callback Refs is we can give each DOM node a different properties (eg. play the video 1,3 but pause video 2 "on mount")
+
+Cons are we use extra memory space and we have to loop over everytime we wanna give all the DOM nodes the same properties
+
+
+<details>
+  <summary>Yet another way of doing the same</summary>
+
+ Another way is to add refs to an array is by creating a `useRef([])`
+
+**Case 3.4**
+
+```tsx
+
+  import {createRef, useRef, useMemo, useEffect}
+
+  const srcArray = [
+    {
+      src: videoSrc1,
+      id: id1
+    },
+    {
+      src: videoSrc2,
+      id: id2
+    }, 
+    {
+      src: videoSrc2,
+      id: id2
+    }
+  ];
+
+  const AccessAndPlayAllVideosInLoop = ({srcArray}) => {
+
+    const refArr = useRef([])
+
+    {/* refArr.current = srcArray.map((item, index) => {
+        return refArr.current[index] || React.createRef(null);
+    } */}
+
+    useEffect(() => {
+      refArr.current.map((video) => {
+        video.current?.mute()
+        video.current?.play()
+      })
+    },[])
+
+    return (
+      <form>
+        {srcArray.map((item, index) => {
+          return (
+            <div key={item.id}>
+              <video ref={refArr[index]} src={item.src} />
+            </div>
+          );
+        })}
+      </form>
+    );
+  }
+
+```
+
+**Here is what we did:**
+
+- we are using ref as a mutable storage variable here
+- created a ref array `refArray` using `useRef` hook (we don't have to bother about memorising them since refs are unaffected by re-renders)
+- map over the `srcArray` and fill the `refArray` with null refs or fill with pre-existing ref conditionally.
+- Access the refArray which has individual DOM nodes "on mount" (ie., in useEffect) and manipulate them as we need.
+
+</details>
+
+
+**Refs are double edged swords, they are as dangerous as powerful**
+
