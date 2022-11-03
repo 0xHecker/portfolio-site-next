@@ -4,24 +4,24 @@
         <description><![CDATA[Sai Shanmukh]]></description>
         <link>https://www.shanmukh.xyz/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 03 Nov 2022 15:25:16 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 03 Nov 2022 18:45:58 GMT</lastBuildDate>
         <atom:link href="https://www.shanmukh.xyz/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 03 Nov 2022 15:25:15 GMT</pubDate>
+        <pubDate>Thu, 03 Nov 2022 18:45:58 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2022, Sai Shanmukh]]></copyright>
         <language><![CDATA[en]]></language>
-        <item>
-            <title><![CDATA[Deep dive into react useRef and callback refs]]></title>
-            <description><![CDATA[Deep dive into react refs and callback refs]]></description>
-            <link>https://www.shanmukh.xyz/blog/deep-dive-into-react-refs</link>
-            <guid isPermaLink="true">https://www.shanmukh.xyz/blog/deep-dive-into-react-refs</guid>
-            <pubDate>Sat, 29 Oct 2022 00:00:00 GMT</pubDate>
-        </item>
         <item>
             <title><![CDATA[React useReducer hook Simplified]]></title>
             <description><![CDATA[React useReducer hook Simplified]]></description>
             <link>https://www.shanmukh.xyz/blog/react-use-reducer-simplified</link>
             <guid isPermaLink="true">https://www.shanmukh.xyz/blog/react-use-reducer-simplified</guid>
             <pubDate>Mon, 01 Aug 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Deep dive into react refs and callback refs]]></title>
+            <description><![CDATA[Deep dive into react refs and callback refs]]></description>
+            <link>https://www.shanmukh.xyz/blog/deep-dive-into-react-refs</link>
+            <guid isPermaLink="true">https://www.shanmukh.xyz/blog/deep-dive-into-react-refs</guid>
+            <pubDate>Sat, 29 Oct 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Lazy Initilization and storing functions in React useState hook]]></title>
