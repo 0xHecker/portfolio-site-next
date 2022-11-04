@@ -145,6 +145,9 @@ export const projects: ProjectType[] = [
     points: ['🦆 BEM', '💆 Mixins, global variables', '🌠 Transitions and animations', '💃 Responsive design', '🚀 Scalable CSS patterns'],
     links: ['https://github.com/0xHecker/beddit-web', 'https://beddit-lac.vercel.app/'],
   },
+]
+
+/*
 
   {
     name: 'Heart rate anomaly map',
@@ -165,4 +168,5 @@ export const projects: ProjectType[] = [
     ],
     links: ['https://github.com/0xHecker/beddit-web', 'https://beddit-lac.vercel.app/'],
   },
-]
+
+*/

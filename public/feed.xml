@@ -4,9 +4,9 @@
         <description><![CDATA[Sai Shanmukh]]></description>
         <link>https://www.shanmukh.xyz/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 03 Nov 2022 19:16:54 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 03 Nov 2022 19:21:32 GMT</lastBuildDate>
         <atom:link href="https://www.shanmukh.xyz/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 03 Nov 2022 19:16:54 GMT</pubDate>
+        <pubDate>Thu, 03 Nov 2022 19:21:32 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2022, Sai Shanmukh]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
@@ -17,18 +17,18 @@
             <pubDate>Sat, 29 Oct 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Lazy Initilization and storing functions in React useState hook]]></title>
-            <description><![CDATA[Lazy Initilization and storing functions in React useState hook]]></description>
-            <link>https://www.shanmukh.xyz/blog/use-state-lazy-init</link>
-            <guid isPermaLink="true">https://www.shanmukh.xyz/blog/use-state-lazy-init</guid>
-            <pubDate>Sun, 28 Aug 2022 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[React useReducer hook Simplified]]></title>
             <description><![CDATA[React useReducer hook Simplified]]></description>
             <link>https://www.shanmukh.xyz/blog/react-use-reducer-simplified</link>
             <guid isPermaLink="true">https://www.shanmukh.xyz/blog/react-use-reducer-simplified</guid>
             <pubDate>Mon, 01 Aug 2022 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Lazy Initilization and storing functions in React useState hook]]></title>
+            <description><![CDATA[Lazy Initilization and storing functions in React useState hook]]></description>
+            <link>https://www.shanmukh.xyz/blog/use-state-lazy-init</link>
+            <guid isPermaLink="true">https://www.shanmukh.xyz/blog/use-state-lazy-init</guid>
+            <pubDate>Sun, 28 Aug 2022 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
