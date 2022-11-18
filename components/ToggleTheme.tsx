@@ -1,14 +1,12 @@
-import { useEffect, useState, Fragment } from 'react'
+import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import { motion, LayoutGroup, AnimatePresence } from 'framer-motion'
+import { motion, LayoutGroup } from 'framer-motion'
 import styles from '../styles/toggletheme.module.scss'
-import { HiOutlineDesktopComputer } from 'react-icons/hi'
-import { toggleThree } from '../utils/toggleThree'
 import useSound from 'use-sound'
 
 // import lightsOn from "/sounds/lights_on.mp3";
 
-export const variants = ['light', 'dark', 'system']
+export const variants = ['light', 'dark']
 {
   /* <audio id="play" controls src="/sounds/lights_on.mp3" />; */
 }
@@ -91,7 +89,7 @@ const getIcon = (variant: string) => {
   if (variant === 'light') {
     return SunIcon()
   }
-  return <HiOutlineDesktopComputer />
+  return SunIcon()
 }
 
 const ToggleTheme = (): JSX.Element => {
@@ -117,10 +115,12 @@ const ToggleTheme = (): JSX.Element => {
         style={{ cursor: 'pointer' }}
         onClick={() => {
           play()
-          setTheme(toggleThree())
+          {
+            theme === 'dark' ? setTheme('light') : setTheme('dark')
+          }
         }}
       >
-        <span className={styles.buttonLabel}>{getIcon(theme ?? 'system')}</span>
+        <span className={styles.buttonLabel}>{getIcon(theme ?? 'light')}</span>
       </div>
     </LayoutGroup>
   )

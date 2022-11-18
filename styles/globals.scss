@@ -49,13 +49,13 @@
   --boxBg: #f3f3f3;
   --siteWidth: 83ch;
   --inputBg: white;
-  --likeButton: rgba(0, 0, 0, 0.05);
-  --likeButtonHover: rgba(0, 0, 0, 0.1);
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   --secondary: #caca28;
   --transparent: rgba(255, 255, 255, 0);
   --shadowLow: rgba(231, 156, 106, 0.555); //rgba(0, 0, 0, 0.219);
   --shadowHigh: rgba(243, 157, 99, 0.726); // rgba(0, 0, 0, 0.5);
+  --detailsBg: #fafafa;
+  --detailsBorder: #eaeaea;
 }
 
 [data-theme='dark'] {
@@ -71,10 +71,10 @@
   --boxBg: #1f1e1d;
   --bgBoxHover: rgb(85, 85, 85);
   --inputBg: #292929;
-  --likeButton: rgba(255, 255, 255, 0.2);
-  --likeButtonHover: rgba(255, 255, 255, 0.3);
   --secondary: yellow;
   --transparent: rgba(0, 0, 0, 0);
+  --detailsBg: #272626e1;
+  --detailsBorder: #3a3737;
 }
 
 html,

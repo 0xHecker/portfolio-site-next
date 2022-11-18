@@ -104,6 +104,21 @@
     opacity: 0.7;
   }
 
+  details {
+    display: block;
+    background-color: var(--detailsBg);
+    border: 1px solid var(--detailsBorder);
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    padding: 0.5rem 1rem;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    transition: all 0.5s;
+    summary {
+      cursor: pointer;
+    }
+  }
+
   ol,
   ul {
     margin-bottom: 1.8em;
